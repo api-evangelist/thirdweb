@@ -1,0 +1,103 @@
+aid: thirdweb
+name: thirdweb
+review:
+  question: Does thirdweb expose a documented public WebSocket or async-streaming API?
+  answer: false
+  date: '2026-06-20'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    Per API Evangelist scope, HTTP Server-Sent Events (SSE) and WebSocket
+    surfaces are in-scope for AsyncAPI modeling. thirdweb's documented HTTP
+    products (api.thirdweb.com, engine.thirdweb.com, insight.thirdweb.com,
+    nebula-api.thirdweb.com) are request/response REST APIs. Insight offers
+    outbound webhooks (provider-to-subscriber HTTP POST callbacks), which are
+    a server-push notification mechanism but not a client-subscribed SSE or
+    WebSocket stream, so no AsyncAPI document was authored. No AsyncAPI file
+    was created.
+findings:
+  summary: |
+    thirdweb does not publish a documented public WebSocket API or client SSE
+    stream across its HTTP products. The thirdweb unified API, Engine, Insight,
+    and Nebula are REST (HTTPS) APIs. Insight exposes a webhooks product that
+    delivers indexed on-chain events and transactions to a subscriber-supplied
+    URL via outbound HTTP POST callbacks (created and managed through the REST
+    endpoints under /v1/webhooks); this is push notification over HTTP, not a
+    bidirectional or client-subscribed streaming transport. RPC Edge serves
+    standard Ethereum JSON-RPC over HTTPS; while some EVM RPC providers offer a
+    wss JSON-RPC subscription endpoint, no such WebSocket endpoint is the focus
+    of these catalog products and none is modeled here.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.thirdweb.com
+      documented: true
+    - protocol: REST
+      scheme: https
+      baseURL: https://engine.thirdweb.com
+      documented: true
+    - protocol: REST
+      scheme: https
+      baseURL: https://insight.thirdweb.com
+      documented: true
+    - protocol: REST
+      scheme: https
+      baseURL: https://nebula-api.thirdweb.com
+      documented: true
+    - protocol: Webhook
+      scheme: https
+      note: Insight delivers on-chain events/transactions to a subscriber URL via outbound HTTP POST. Managed via REST under /v1/webhooks. Not a client-subscribed SSE or WebSocket stream.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented as the public interface for the thirdweb API, Engine, Insight, or Nebula products as of the review date.
+  endpointsConfirmedRest:
+    - POST https://api.thirdweb.com/v1/auth/initiate
+    - POST https://api.thirdweb.com/v1/auth/complete
+    - GET  https://api.thirdweb.com/v1/wallets/me
+    - POST https://api.thirdweb.com/v1/wallets/send
+    - POST https://api.thirdweb.com/v1/contracts/read
+    - POST https://api.thirdweb.com/v1/contracts/write
+    - POST https://api.thirdweb.com/v1/transactions
+    - GET  https://api.thirdweb.com/v1/transactions/{transactionId}
+    - POST https://api.thirdweb.com/v1/tokens
+    - POST https://api.thirdweb.com/v1/bridge/swap
+    - POST https://api.thirdweb.com/v1/payments/x402/verify
+    - POST https://api.thirdweb.com/v1/payments/x402/settle
+    - POST https://api.thirdweb.com/ai/chat
+    - POST https://engine.thirdweb.com/v1/write/contract
+    - POST https://engine.thirdweb.com/v1/read/contract
+    - POST https://engine.thirdweb.com/v1/accounts
+    - GET  https://insight.thirdweb.com/v1/events
+    - GET  https://insight.thirdweb.com/v1/transactions
+    - GET  https://insight.thirdweb.com/v1/tokens/erc20/{ownerAddress}
+    - GET  https://insight.thirdweb.com/v1/nfts/balance/{ownerAddress}
+    - POST https://insight.thirdweb.com/v1/webhooks
+    - POST https://nebula-api.thirdweb.com/chat
+    - POST https://nebula-api.thirdweb.com/execute
+    - POST https://nebula-api.thirdweb.com/session
+sources:
+  - url: https://portal.thirdweb.com/reference
+    type: APIReference
+    note: thirdweb unified API reference; all documented endpoints are HTTPS REST.
+  - url: https://api.thirdweb.com/openapi.json
+    type: OpenAPI
+    note: Machine-readable OpenAPI for api.thirdweb.com; REST only, no WebSocket channels.
+  - url: https://insight.thirdweb.com/openapi.json
+    type: OpenAPI
+    note: Insight OpenAPI lists REST endpoints plus /v1/webhooks for outbound HTTP POST callbacks; no SSE or WebSocket channel.
+  - url: https://engine.thirdweb.com/openapi.json
+    type: OpenAPI
+    note: Engine Cloud API OpenAPI; REST only.
+  - url: https://nebula-api.thirdweb.com/openapi.json
+    type: OpenAPI
+    note: Nebula OpenAPI; REST chat/execute/session endpoints, no WebSocket.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or client SSE streaming surface exists across the documented
+    thirdweb HTTP products. Insight webhooks are outbound HTTP POST callbacks
+    managed via REST, which fall outside the SSE/WebSocket AsyncAPI scope, so
+    no AsyncAPI document was authored.

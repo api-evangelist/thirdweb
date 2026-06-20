@@ -1,0 +1,71 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: thirdweb
+providerId: thirdweb
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: false
+tags:
+- Web3
+- Blockchain
+- Wallets
+- Payments
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  thirdweb enforces per-account rate limits expressed primarily as requests per
+  second (RPS) on RPC Edge and Insight, alongside metered monthly usage quotas
+  for wallets, server-wallet requests, transactions, and RPC/Insight requests.
+  RPS ceilings scale with plan tier (free vs. Growth vs. Scale vs. Pro) and are
+  visible in the thirdweb dashboard. Specific per-tier numeric values are not
+  reconciled in this artifact.
+notes: >-
+  Verify per-tier RPS and monthly quota values in the thirdweb dashboard on
+  reconciliation; limits change as accounts move between free, paid, and Pro
+  tiers.
+sources:
+- https://portal.thirdweb.com
+- https://thirdweb.com/pricing
+responseCodes:
+  throttled: 429
+limits:
+- name: RPC Edge Requests Per Second (RPS)
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Per-account RPS ceiling on JSON-RPC node access, varies by plan tier.
+- name: Insight Requests Per Second (RPS)
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Per-account RPS ceiling on indexed data queries, varies by plan tier.
+- name: RPC & Insight Monthly Requests
+  scope: account
+  metric: requests
+  limit: 1000000 included, metered beyond
+  notes: 1M requests included monthly across all plans, then tiered per-million pricing.
+- name: Server Wallet Requests
+  scope: account
+  metric: requests
+  limit: 1000 included, metered beyond
+  notes: 1,000 server-wallet requests included monthly, then tiered per-thousand pricing.
+- name: Transactions
+  scope: account
+  metric: transactions
+  limit: 1000 included, metered beyond
+  notes: 1,000 gas-sponsored transactions included monthly, then tiered per-thousand pricing.
+- name: Monthly Active User Wallets
+  scope: account
+  metric: wallets
+  limit: 1000 free, metered beyond
+  notes: First 1,000 monthly active user wallets free, then tiered per-MAU pricing.
+policies:
+- name: Tiered Limits
+  description: RPS ceilings and quotas raise as accounts move from free to Growth, Scale, and Pro plans.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,121 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: thirdweb
+providerId: thirdweb
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: true
+tags:
+- Web3
+- Blockchain
+- Wallets
+- Payments
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of thirdweb spend. thirdweb bills an optional monthly subscription
+  (Growth, Scale, Pro) plus tiered usage: per monthly active user wallet, per
+  server-wallet request, per gas-sponsored transaction, and per RPC/Insight
+  request, with volume discounts at higher tiers. Bridge swaps and x402 payments
+  carry a 0.3% transaction fee and AI (Nebula) usage is billed per million
+  tokens.
+notes: >-
+  Subscription and per-unit rates are subject to change; verify against the
+  thirdweb pricing page during reconciliation.
+sources:
+- https://thirdweb.com/pricing
+- https://portal.thirdweb.com
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: thirdweb
+serviceCategory: Web3 and Blockchain Infrastructure
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: thirdweb
+  ServiceCategory: Web3 and Blockchain Infrastructure
+  ProviderName: thirdweb
+  PublisherName: thirdweb
+  InvoiceIssuerName: thirdweb
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: subscription
+  description: Monthly plan subscription (Growth, Scale, or Pro), billed flat per month.
+  unit: months
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: monthly_active_wallets
+  description: Monthly active user wallets, billed per MAU with the first 1,000 free and tiered volume discounts.
+  unit: wallets
+  aggregation: sum
+  dimensions:
+  - account
+  - chain
+- name: server_wallet_requests
+  description: Server-wallet (Engine) requests, 1,000 included monthly then tiered per-thousand.
+  unit: requests
+  aggregation: sum
+  dimensions:
+  - account
+- name: transactions
+  description: Gas-sponsored transactions, 1,000 included monthly then tiered per-thousand.
+  unit: transactions
+  aggregation: sum
+  dimensions:
+  - account
+  - chain
+- name: rpc_insight_requests
+  description: RPC Edge and Insight requests, 1M included monthly then tiered per-million.
+  unit: requests
+  aggregation: sum
+  dimensions:
+  - account
+  - api
+- name: bridge_fees
+  description: Bridge/swap transaction fees charged at 0.3% of transaction value.
+  unit: usd
+  aggregation: sum
+  dimensions:
+  - account
+  - chain
+- name: x402_fees
+  description: x402 payment fees charged at 0.3% of transaction value.
+  unit: usd
+  aggregation: sum
+  dimensions:
+  - account
+- name: ai_tokens
+  description: Nebula AI tokens, billed at $3 per 1M tokens.
+  unit: tokens
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Pull thirdweb dashboard usage and billing exports; inspect MAU, request, and transaction burn per project.
+- name: Allocation
+  description: Tag client IDs and secret keys per app/team; map to internal cost centers.
+- name: Optimization
+  description: Cache RPC/Insight reads, batch transactions, scope monthly active wallets, and right-size the subscription tier to expected volume to capture per-unit discounts.
+- name: Accountability
+  description: Assign owners per project/key; review wallet, transaction, and payment-fee spend monthly against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

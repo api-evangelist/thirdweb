@@ -1,0 +1,201 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: thirdweb
+providerId: thirdweb
+created: '2026-06-20'
+modified: '2026-06-20'
+reconciled: true
+tags:
+- Web3
+- Blockchain
+- Wallets
+- Payments
+- Plans
+description: >-
+  thirdweb combines a free tier with paid subscription plans (Growth, Scale, and
+  Pro) and tiered usage-based pricing that applies across all plans. Usage is
+  metered per monthly active user wallet, per server-wallet request, per
+  gas-sponsored transaction, and per RPC/Insight request, with volume discounts
+  at higher tiers. Bridge swaps and x402 payments carry a percentage transaction
+  fee, and the AI (Nebula) interface is billed per million tokens.
+notes: >-
+  Subscription prices and usage rates are as published on the thirdweb pricing
+  page; verify the current catalog and rate tiers on the page during
+  reconciliation.
+sources:
+- https://thirdweb.com/pricing
+- https://portal.thirdweb.com
+plans:
+- id: thirdweb-free
+  name: Free
+  type: free
+  description: >-
+    Entry tier for getting started, including 1,000 free monthly active user
+    wallets, with the same metered usage rates beyond included amounts.
+  entries:
+  - label: Free Monthly Active Wallets
+    name: free_maw
+    type: free
+    metric: wallets
+    limit: 1000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Wallets
+  - name: Transactions
+  - name: Insight
+  - name: RPC Edge
+- id: thirdweb-growth
+  name: Growth
+  type: paid
+  description: >-
+    Subscription for small teams and startups with higher limits, production
+    support, and the standard usage-based metering on top.
+  entries:
+  - label: Growth Subscription
+    name: growth
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $99 per month
+    userMultiplied: false
+  elements:
+  - name: Wallets
+  - name: Transactions
+  - name: Payments
+- id: thirdweb-scale
+  name: Scale
+  type: paid
+  description: >-
+    Subscription for mid-size businesses with higher quotas and support, plus the
+    standard usage-based metering.
+  entries:
+  - label: Scale Subscription
+    name: scale
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $499 per month
+    userMultiplied: false
+  elements:
+  - name: Wallets
+  - name: Engine
+  - name: Payments
+- id: thirdweb-pro
+  name: Pro
+  type: enterprise
+  description: >-
+    Plan for large organizations with custom needs, dedicated support, and
+    negotiated terms. Contact thirdweb sales.
+  entries:
+  - label: Pro Subscription
+    name: pro
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: from $1,499 per month
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: Dedicated Support
+  - name: Enterprise SLAs
+- id: thirdweb-usage
+  name: Usage-Based Pricing
+  type: usage
+  description: >-
+    Tiered metered usage applied across all plans for wallets, server-wallet
+    requests, transactions, RPC/Insight requests, payment fees, and AI tokens.
+  entries:
+  - label: User Wallets (Monthly Active Users)
+    name: user_wallets_maw
+    type: usage
+    metric: wallets
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0.015/MAU (first 1,000 free), $0.01 over 100K, $0.0075 over 1M, $0.005 over 10M
+    userMultiplied: true
+  - label: Server Wallets (Requests)
+    name: server_wallet_requests
+    type: usage
+    metric: requests
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1000
+    price: 1,000 included, then $1/1K, $0.60/1K over 100K, $0.20/1K over 250K
+    userMultiplied: false
+  - label: Gas Sponsorship & Transactions
+    name: transactions
+    type: usage
+    metric: transactions
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1000
+    price: 1,000 included, then $1/1K, $0.60/1K over 100K, $0.20/1K over 250K
+    userMultiplied: false
+  - label: RPC & Insight Requests
+    name: rpc_insight_requests
+    type: usage
+    metric: requests
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1000000
+    price: 1M included, then $8/1M, $6.80/1M over 250M, $5.40/1M over 1B
+    userMultiplied: false
+  - label: Bridge / Swap Fee
+    name: bridge_fee
+    type: usage
+    metric: transaction_value
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0.3% per transaction
+    userMultiplied: false
+  - label: x402 Payment Fee
+    name: x402_fee
+    type: usage
+    metric: transaction_value
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0.3% per transaction
+    userMultiplied: false
+  - label: AI (Nebula) Tokens
+    name: ai_tokens
+    type: usage
+    metric: tokens
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1000000
+    price: $3 per 1M tokens
+    userMultiplied: false
+  elements:
+  - name: Wallets
+  - name: Engine
+  - name: Insight
+  - name: RPC Edge
+  - name: Payments
+  - name: Nebula
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

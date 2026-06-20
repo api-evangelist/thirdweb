@@ -1,0 +1,689 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "thirdweb API",
+    "version": "1.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "apikey": {
+        "key": "x-secret-key",
+        "value": "{{secretKey}}",
+        "in": "header"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate Auth",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/auth/initiate",
+            "body": {
+              "type": "json",
+              "data": "{\"method\": \"email\", \"email\": \"<string>\"}"
+            }
+          },
+          "docs": "Initiate Auth"
+        },
+        {
+          "info": {
+            "name": "Complete Auth",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/auth/complete",
+            "body": {
+              "type": "json",
+              "data": "{\"method\": \"email\", \"code\": \"<string>\"}"
+            }
+          },
+          "docs": "Complete Auth"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Wallets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get My Wallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/wallets/me"
+          },
+          "docs": "Get My Wallet"
+        },
+        {
+          "info": {
+            "name": "List User Wallets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/wallets/user"
+          },
+          "docs": "List User Wallets"
+        },
+        {
+          "info": {
+            "name": "Create User Wallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/wallets/user",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create User Wallet"
+        },
+        {
+          "info": {
+            "name": "List Server Wallets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/wallets/server"
+          },
+          "docs": "List Server Wallets"
+        },
+        {
+          "info": {
+            "name": "Create Server Wallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/wallets/server",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Server Wallet"
+        },
+        {
+          "info": {
+            "name": "Get Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/wallets/{address}/balance"
+          },
+          "docs": "Get Balance"
+        },
+        {
+          "info": {
+            "name": "Sign Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/wallets/sign-message",
+            "body": {
+              "type": "json",
+              "data": "{\"from\": \"<string>\", \"message\": \"<string>\", \"chainId\": 1}"
+            }
+          },
+          "docs": "Sign Message"
+        },
+        {
+          "info": {
+            "name": "Sign Typed Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/wallets/sign-typed-data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign Typed Data"
+        },
+        {
+          "info": {
+            "name": "Send Tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/wallets/send",
+            "body": {
+              "type": "json",
+              "data": "{\"chainId\": 1, \"recipients\": [{\"address\": \"<string>\", \"quantity\": \"<string>\"}]}"
+            }
+          },
+          "docs": "Send Tokens"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contracts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/contracts/read",
+            "body": {
+              "type": "json",
+              "data": "{\"chainId\": 1, \"calls\": [{\"contractAddress\": \"<string>\", \"method\": \"<string>\", \"params\": []}]}"
+            }
+          },
+          "docs": "Read Contract"
+        },
+        {
+          "info": {
+            "name": "Write Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/contracts/write",
+            "body": {
+              "type": "json",
+              "data": "{\"chainId\": 1, \"from\": \"<string>\", \"calls\": [{\"contractAddress\": \"<string>\", \"method\": \"<string>\", \"params\": []}]}"
+            }
+          },
+          "docs": "Write Contract"
+        },
+        {
+          "info": {
+            "name": "Deploy Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/contracts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deploy Contract"
+        },
+        {
+          "info": {
+            "name": "Get Contract Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/contracts/{chainId}/{address}/events"
+          },
+          "docs": "Get Contract Events"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/transactions"
+          },
+          "docs": "List Transactions"
+        },
+        {
+          "info": {
+            "name": "Send Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/transactions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send Transactions"
+        },
+        {
+          "info": {
+            "name": "Get Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/transactions/{transactionId}"
+          },
+          "docs": "Get Transaction"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/tokens"
+          },
+          "docs": "List Tokens"
+        },
+        {
+          "info": {
+            "name": "Create Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/tokens",
+            "body": {
+              "type": "json",
+              "data": "{\"chainId\": 1, \"name\": \"<string>\", \"symbol\": \"<string>\", \"description\": \"<string>\", \"imageUrl\": \"<string>\"}"
+            }
+          },
+          "docs": "Create Token"
+        },
+        {
+          "info": {
+            "name": "Get Owners",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/tokens/{chainId}/{address}/owners"
+          },
+          "docs": "Get Owners"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Supported Chains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/bridge/chains"
+          },
+          "docs": "List Supported Chains"
+        },
+        {
+          "info": {
+            "name": "List Supported Routes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/bridge/routes"
+          },
+          "docs": "List Supported Routes"
+        },
+        {
+          "info": {
+            "name": "Convert Fiat to Crypto",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/bridge/convert"
+          },
+          "docs": "Convert Fiat to Crypto"
+        },
+        {
+          "info": {
+            "name": "Swap or Bridge Tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/bridge/swap",
+            "body": {
+              "type": "json",
+              "data": "{\"tokenIn\": {}, \"tokenOut\": {}}"
+            }
+          },
+          "docs": "Swap or Bridge Tokens"
+        },
+        {
+          "info": {
+            "name": "Verify x402 Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/payments/x402/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify x402 Payment"
+        },
+        {
+          "info": {
+            "name": "Settle x402 Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/payments/x402/settle",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Settle x402 Payment"
+        },
+        {
+          "info": {
+            "name": "Supported x402 Methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/payments/x402/supported"
+          },
+          "docs": "Supported x402 Methods"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Engine",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Write Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://engine.thirdweb.com/v1/write/contract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Write Contract"
+        },
+        {
+          "info": {
+            "name": "Read Contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://engine.thirdweb.com/v1/read/contract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read Contract"
+        },
+        {
+          "info": {
+            "name": "Sign Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://engine.thirdweb.com/v1/sign/message",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign Message"
+        },
+        {
+          "info": {
+            "name": "List Server Wallets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://engine.thirdweb.com/v1/accounts"
+          },
+          "docs": "List Server Wallets"
+        },
+        {
+          "info": {
+            "name": "Get or Create Server Wallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://engine.thirdweb.com/v1/accounts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get or Create Server Wallet"
+        },
+        {
+          "info": {
+            "name": "Get Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://engine.thirdweb.com/v1/transactions"
+          },
+          "docs": "Get Transactions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Insight",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://insight.thirdweb.com/v1/events"
+          },
+          "docs": "Get Events"
+        },
+        {
+          "info": {
+            "name": "Get Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://insight.thirdweb.com/v1/transactions"
+          },
+          "docs": "Get Transactions"
+        },
+        {
+          "info": {
+            "name": "Get ERC-20 Balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://insight.thirdweb.com/v1/tokens/erc20/{ownerAddress}"
+          },
+          "docs": "Get ERC-20 Balances"
+        },
+        {
+          "info": {
+            "name": "Get NFT Balances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://insight.thirdweb.com/v1/nfts/balance/{ownerAddress}"
+          },
+          "docs": "Get NFT Balances"
+        },
+        {
+          "info": {
+            "name": "Get Blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://insight.thirdweb.com/v1/blocks"
+          },
+          "docs": "Get Blocks"
+        },
+        {
+          "info": {
+            "name": "Get Contract ABI",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://insight.thirdweb.com/v1/contracts/abi/{contractAddress}"
+          },
+          "docs": "Get Contract ABI"
+        },
+        {
+          "info": {
+            "name": "List Webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://insight.thirdweb.com/v1/webhooks"
+          },
+          "docs": "List Webhooks"
+        },
+        {
+          "info": {
+            "name": "Create Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://insight.thirdweb.com/v1/webhooks",
+            "body": {
+              "type": "json",
+              "data": "{\"webhookUrl\": \"<string>\", \"filters\": {}}"
+            }
+          },
+          "docs": "Create Webhook"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Nebula",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Chat",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nebula-api.thirdweb.com/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Chat"
+        },
+        {
+          "info": {
+            "name": "Execute",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nebula-api.thirdweb.com/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute"
+        },
+        {
+          "info": {
+            "name": "Create Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://nebula-api.thirdweb.com/session",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Session"
+        },
+        {
+          "info": {
+            "name": "Get Models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://nebula-api.thirdweb.com/models"
+          },
+          "docs": "Get Models"
+        }
+      ]
+    }
+  ]
+}

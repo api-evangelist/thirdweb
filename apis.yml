@@ -1,0 +1,176 @@
+aid: thirdweb
+url: https://raw.githubusercontent.com/api-evangelist/thirdweb/refs/heads/main/apis.yml
+name: thirdweb
+kind: company
+description: thirdweb is a full-stack web3 development platform. Its HTTP APIs unify
+  wallet management, transaction execution, smart contract read/write, token and NFT
+  operations, fiat-to-crypto payments and bridging, indexed on-chain data, and an
+  AI blockchain interface across thousands of EVM chains and Solana, authenticated
+  with a client ID or secret key.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Web3
+- Blockchain
+- Wallets
+- Smart Contracts
+- Payments
+- Indexer
+created: '2026-06-20'
+modified: '2026-06-20'
+specificationVersion: '0.19'
+apis:
+- aid: thirdweb:thirdweb-api
+  name: thirdweb API
+  tags:
+  - Wallets
+  - Transactions
+  - Tokens
+  - Contracts
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://portal.thirdweb.com/reference
+  baseURL: https://api.thirdweb.com
+  properties:
+  - url: https://portal.thirdweb.com/reference
+    type: Documentation
+  - url: https://portal.thirdweb.com/reference
+    type: APIReference
+  - url: openapi/thirdweb-openapi.yml
+    type: OpenAPI
+  - url: collections/thirdweb.postman_collection.json
+    type: PostmanCollection
+  - url: collections/thirdweb.opencollection.json
+    type: OpenCollection
+  description: Unified web3 API for user and server wallets, message and typed-data
+    signing, token transfers, smart contract reads and writes, contract deployment,
+    transaction submission, and authentication across thousands of EVM chains and
+    Solana.
+- aid: thirdweb:thirdweb-engine
+  name: thirdweb Engine
+  tags:
+  - Engine
+  - Backend
+  - Transactions
+  - Server Wallets
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://portal.thirdweb.com/engine
+  baseURL: https://engine.thirdweb.com
+  properties:
+  - url: https://portal.thirdweb.com/engine
+    type: Documentation
+  - url: https://engine.thirdweb.com/reference
+    type: APIReference
+  - url: openapi/thirdweb-openapi.yml
+    type: OpenAPI
+  - url: collections/thirdweb.postman_collection.json
+    type: PostmanCollection
+  - url: collections/thirdweb.opencollection.json
+    type: OpenCollection
+  description: Backend transaction execution engine providing server wallets with
+    automated nonce management, gas handling, transaction queueing and retries, plus
+    contract write/read, encoding, signing, and transaction analytics endpoints.
+- aid: thirdweb:thirdweb-insight
+  name: thirdweb Insight
+  tags:
+  - Insight
+  - Indexer
+  - Events
+  - On-Chain Data
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://portal.thirdweb.com/insight
+  baseURL: https://insight.thirdweb.com
+  properties:
+  - url: https://portal.thirdweb.com/insight
+    type: Documentation
+  - url: https://insight.thirdweb.com/reference
+    type: APIReference
+  - url: openapi/thirdweb-openapi.yml
+    type: OpenAPI
+  - url: collections/thirdweb.postman_collection.json
+    type: PostmanCollection
+  - url: collections/thirdweb.opencollection.json
+    type: OpenCollection
+  description: Indexed on-chain data API for querying events, transactions, blocks,
+    ERC-20/721/1155 tokens and balances, NFT metadata and transfers, contract ABIs,
+    log decoding, and configurable on-chain webhooks across supported chains.
+- aid: thirdweb:thirdweb-nebula
+  name: thirdweb Nebula
+  tags:
+  - Nebula
+  - AI
+  - Agents
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://portal.thirdweb.com/nebula
+  baseURL: https://nebula-api.thirdweb.com
+  properties:
+  - url: https://portal.thirdweb.com/nebula
+    type: Documentation
+  - url: https://nebula-api.thirdweb.com/reference
+    type: APIReference
+  - url: openapi/thirdweb-openapi.yml
+    type: OpenAPI
+  - url: collections/thirdweb.postman_collection.json
+    type: PostmanCollection
+  - url: collections/thirdweb.opencollection.json
+    type: OpenCollection
+  description: AI blockchain interface with session-based chat, chat completions,
+    and execute endpoints that read and write on-chain on behalf of agents, plus
+    session management, models listing, and delegated authentication.
+- aid: thirdweb:thirdweb-payments
+  name: thirdweb Payments and Bridge
+  tags:
+  - Payments
+  - Bridge
+  - x402
+  - Onramp
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://portal.thirdweb.com/payments
+  baseURL: https://api.thirdweb.com
+  properties:
+  - url: https://portal.thirdweb.com/payments
+    type: Documentation
+  - url: https://playground.thirdweb.com/payments/backend
+    type: APIReference
+  - url: openapi/thirdweb-openapi.yml
+    type: OpenAPI
+  - url: collections/thirdweb.postman_collection.json
+    type: PostmanCollection
+  - url: collections/thirdweb.opencollection.json
+    type: OpenCollection
+  description: Bridge, swap, convert, and onramp any currency across thousands of
+    chains, and accept HTTP and agentic payments with the x402 verify, settle, fetch,
+    and discovery endpoints.
+- aid: thirdweb:thirdweb-rpc-edge
+  name: thirdweb RPC Edge
+  tags:
+  - RPC
+  - JSON-RPC
+  - Nodes
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
+  baseURL: https://{chainId}.rpc.thirdweb.com
+  properties:
+  - url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
+    type: Documentation
+  - url: openapi/thirdweb-openapi.yml
+    type: OpenAPI
+  description: Globally distributed JSON-RPC node access over HTTPS at
+    https://{chainId}.rpc.thirdweb.com, authenticated by client ID, providing
+    standard Ethereum JSON-RPC methods across thousands of supported chains.
+common:
+- type: GitHubOrganization
+  url: https://github.com/thirdweb-dev
+- type: LinkedIn
+  url: https://www.linkedin.com/company/third-web
+- type: Website
+  url: https://thirdweb.com
+- type: Documentation
+  url: https://portal.thirdweb.com
+- type: Plans
+  url: plans/thirdweb-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/thirdweb-rate-limits.yml
+- type: FinOps
+  url: finops/thirdweb-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

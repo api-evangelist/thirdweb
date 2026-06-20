@@ -1,0 +1,1891 @@
+{
+  "info": {
+    "_postman_id": "cfcec5b4-4831-41b6-bfc2-df7882f6632c",
+    "name": "thirdweb API",
+    "description": {
+      "content": "thirdweb unified API, Engine, Insight, and Nebula HTTP endpoints. Authenticate backend usage with x-secret-key and frontend usage with x-client-id or a Bearer JWT.",
+      "type": "text/plain"
+    },
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "id": "8c42cd71-29e9-4d74-9351-8eb7609c5db9",
+      "name": "Authentication",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8ba716e9-e361-4768-b712-53639dea5dd3",
+          "name": "Initiate Auth",
+          "request": {
+            "name": "Initiate Auth",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/auth/initiate",
+              "path": [
+                "v1",
+                "auth",
+                "initiate"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"email\",\n  \"email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "5555ca32-d3fb-490e-acfc-099e02713de1",
+          "name": "Complete Auth",
+          "request": {
+            "name": "Complete Auth",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/auth/complete",
+              "path": [
+                "v1",
+                "auth",
+                "complete"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"email\",\n  \"code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "70e94fd0-831b-47c2-a324-02b2c59950d2",
+      "name": "Wallets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3111dfa-ff8c-444b-a164-2671912f2548",
+          "name": "Get My Wallet",
+          "request": {
+            "name": "Get My Wallet",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/wallets/me",
+              "path": [
+                "v1",
+                "wallets",
+                "me"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "c81cf635-67d6-4c32-bb27-75af1ffa402e",
+          "name": "List User Wallets",
+          "request": {
+            "name": "List User Wallets",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/wallets/user",
+              "path": [
+                "v1",
+                "wallets",
+                "user"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "1bc4b568-7ab7-45b1-80ee-c1b4d9ab98eb",
+          "name": "Create User Wallet",
+          "request": {
+            "name": "Create User Wallet",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/wallets/user",
+              "path": [
+                "v1",
+                "wallets",
+                "user"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "9bd71b59-9cf4-4361-80a8-fbfa8373aac7",
+          "name": "List Server Wallets",
+          "request": {
+            "name": "List Server Wallets",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/wallets/server",
+              "path": [
+                "v1",
+                "wallets",
+                "server"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "26b4aeb5-4099-4742-b4e3-8ee9bfda01b0",
+          "name": "Create Server Wallet",
+          "request": {
+            "name": "Create Server Wallet",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/wallets/server",
+              "path": [
+                "v1",
+                "wallets",
+                "server"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "2168022b-f1f7-4012-b386-91a70992e3a1",
+          "name": "Get Balance",
+          "request": {
+            "name": "Get Balance",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/wallets/{address}/balance",
+              "path": [
+                "v1",
+                "wallets",
+                "{address}",
+                "balance"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "0301353a-800d-44c1-8a8c-569b0c228077",
+          "name": "Sign Message",
+          "request": {
+            "name": "Sign Message",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/wallets/sign-message",
+              "path": [
+                "v1",
+                "wallets",
+                "sign-message"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from\": \"<string>\",\n  \"message\": \"<string>\",\n  \"chainId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "b4bbf275-c134-41b9-8eb0-92235838c4b3",
+          "name": "Sign Typed Data",
+          "request": {
+            "name": "Sign Typed Data",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/wallets/sign-typed-data",
+              "path": [
+                "v1",
+                "wallets",
+                "sign-typed-data"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "9a631e1c-611c-4a52-9a71-71ee7fa2ed39",
+          "name": "Send Tokens",
+          "request": {
+            "name": "Send Tokens",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/wallets/send",
+              "path": [
+                "v1",
+                "wallets",
+                "send"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chainId\": 1,\n  \"recipients\": [\n    {\n      \"address\": \"<string>\",\n      \"quantity\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "e672415f-2d0f-4cc5-bb1b-6f3505436ebd",
+      "name": "Contracts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "780dc117-f9af-41d1-af99-684afdeadd2a",
+          "name": "Read Contract",
+          "request": {
+            "name": "Read Contract",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/contracts/read",
+              "path": [
+                "v1",
+                "contracts",
+                "read"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chainId\": 1,\n  \"calls\": [\n    {\n      \"contractAddress\": \"<string>\",\n      \"method\": \"<string>\",\n      \"params\": []\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "5d9cb007-b048-416e-ab73-65fd19586757",
+          "name": "Write Contract",
+          "request": {
+            "name": "Write Contract",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/contracts/write",
+              "path": [
+                "v1",
+                "contracts",
+                "write"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chainId\": 1,\n  \"from\": \"<string>\",\n  \"calls\": [\n    {\n      \"contractAddress\": \"<string>\",\n      \"method\": \"<string>\",\n      \"params\": []\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "c2365f34-cd04-405d-b0ed-7eb374dd2220",
+          "name": "Deploy Contract",
+          "request": {
+            "name": "Deploy Contract",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/contracts",
+              "path": [
+                "v1",
+                "contracts"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "efc2a4b4-78a8-42b1-84d0-314725dcdeb3",
+          "name": "Get Contract Events",
+          "request": {
+            "name": "Get Contract Events",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/contracts/{chainId}/{address}/events",
+              "path": [
+                "v1",
+                "contracts",
+                "{chainId}",
+                "{address}",
+                "events"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "91ef4f0e-aa03-480c-9a34-3c2a43ba5281",
+      "name": "Transactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d8e5d5a6-5f72-487a-aa67-3c14d4a39e95",
+          "name": "List Transactions",
+          "request": {
+            "name": "List Transactions",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/transactions",
+              "path": [
+                "v1",
+                "transactions"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "50bcb5d4-fac3-465a-983e-6a094e2cfcb2",
+          "name": "Send Transactions",
+          "request": {
+            "name": "Send Transactions",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/transactions",
+              "path": [
+                "v1",
+                "transactions"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "7e0c9dfa-93fd-46a4-831a-49a94835d3fd",
+          "name": "Get Transaction",
+          "request": {
+            "name": "Get Transaction",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/transactions/{transactionId}",
+              "path": [
+                "v1",
+                "transactions",
+                "{transactionId}"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "0947f403-ca75-4590-a4e2-075c761cd884",
+      "name": "Tokens",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e27bd734-8230-44d0-bff7-301f592e1133",
+          "name": "List Tokens",
+          "request": {
+            "name": "List Tokens",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/tokens",
+              "path": [
+                "v1",
+                "tokens"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "350d40f1-575c-40a2-a4e0-3f54905f700a",
+          "name": "Create Token",
+          "request": {
+            "name": "Create Token",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/tokens",
+              "path": [
+                "v1",
+                "tokens"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chainId\": 1,\n  \"name\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageUrl\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "e541f8c1-bbc5-446b-a5e7-968f10b6b032",
+          "name": "Get Owners",
+          "request": {
+            "name": "Get Owners",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/tokens/{chainId}/{address}/owners",
+              "path": [
+                "v1",
+                "tokens",
+                "{chainId}",
+                "{address}",
+                "owners"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "93e971d9-0da9-418a-b3af-43e230af2b5a",
+      "name": "Payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5ad424d5-0df6-44de-b0ba-7345e675e2d2",
+          "name": "List Supported Chains",
+          "request": {
+            "name": "List Supported Chains",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/bridge/chains",
+              "path": [
+                "v1",
+                "bridge",
+                "chains"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "67755948-0079-4e9b-83f9-61a41976f950",
+          "name": "List Supported Routes",
+          "request": {
+            "name": "List Supported Routes",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/bridge/routes",
+              "path": [
+                "v1",
+                "bridge",
+                "routes"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "64c02618-eb41-4e86-baee-ca175231839c",
+          "name": "Convert Fiat to Crypto",
+          "request": {
+            "name": "Convert Fiat to Crypto",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/bridge/convert",
+              "path": [
+                "v1",
+                "bridge",
+                "convert"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "6512e569-853b-44ef-8638-1fdf5c4b8d5a",
+          "name": "Swap or Bridge Tokens",
+          "request": {
+            "name": "Swap or Bridge Tokens",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/bridge/swap",
+              "path": [
+                "v1",
+                "bridge",
+                "swap"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tokenIn\": {},\n  \"tokenOut\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "9089fecb-1503-442e-bb8a-bc72e5a7420d",
+          "name": "Verify x402 Payment",
+          "request": {
+            "name": "Verify x402 Payment",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/payments/x402/verify",
+              "path": [
+                "v1",
+                "payments",
+                "x402",
+                "verify"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "0ec5d8f5-6cff-4c0d-b1db-db1e57d6ed46",
+          "name": "Settle x402 Payment",
+          "request": {
+            "name": "Settle x402 Payment",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/payments/x402/settle",
+              "path": [
+                "v1",
+                "payments",
+                "x402",
+                "settle"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "02387ab8-4e92-4e70-90a1-4bf77e0443d6",
+          "name": "Supported x402 Methods",
+          "request": {
+            "name": "Supported x402 Methods",
+            "description": {},
+            "url": {
+              "raw": "https://api.thirdweb.com/v1/payments/x402/supported",
+              "path": [
+                "v1",
+                "payments",
+                "x402",
+                "supported"
+              ],
+              "host": [
+                "api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "ff2cda35-b496-4584-a10f-3e6a56064335",
+      "name": "Engine",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "89596c10-8886-4cc4-af22-d26581afb2c9",
+          "name": "Write Contract",
+          "request": {
+            "name": "Write Contract",
+            "description": {},
+            "url": {
+              "raw": "https://engine.thirdweb.com/v1/write/contract",
+              "path": [
+                "v1",
+                "write",
+                "contract"
+              ],
+              "host": [
+                "engine",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "6743fe2b-4ec4-4f00-9af3-46978d3d1427",
+          "name": "Read Contract",
+          "request": {
+            "name": "Read Contract",
+            "description": {},
+            "url": {
+              "raw": "https://engine.thirdweb.com/v1/read/contract",
+              "path": [
+                "v1",
+                "read",
+                "contract"
+              ],
+              "host": [
+                "engine",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "ed36c494-c999-4d23-8604-58cea848277a",
+          "name": "Sign Message",
+          "request": {
+            "name": "Sign Message",
+            "description": {},
+            "url": {
+              "raw": "https://engine.thirdweb.com/v1/sign/message",
+              "path": [
+                "v1",
+                "sign",
+                "message"
+              ],
+              "host": [
+                "engine",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "65661899-6c95-4abf-901a-65bf0d5af050",
+          "name": "List Server Wallets",
+          "request": {
+            "name": "List Server Wallets",
+            "description": {},
+            "url": {
+              "raw": "https://engine.thirdweb.com/v1/accounts",
+              "path": [
+                "v1",
+                "accounts"
+              ],
+              "host": [
+                "engine",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "dd7fd06b-66af-4cf2-ad93-218760cee97d",
+          "name": "Get or Create Server Wallet",
+          "request": {
+            "name": "Get or Create Server Wallet",
+            "description": {},
+            "url": {
+              "raw": "https://engine.thirdweb.com/v1/accounts",
+              "path": [
+                "v1",
+                "accounts"
+              ],
+              "host": [
+                "engine",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "1507f587-673b-4e2d-baff-0b5d9f34f4f4",
+          "name": "Get Transactions",
+          "request": {
+            "name": "Get Transactions",
+            "description": {},
+            "url": {
+              "raw": "https://engine.thirdweb.com/v1/transactions",
+              "path": [
+                "v1",
+                "transactions"
+              ],
+              "host": [
+                "engine",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "bbb9583a-de6d-403c-95ba-19084e92407f",
+      "name": "Insight",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "473a458f-9abb-4b0e-b0a1-5c7ced102e1e",
+          "name": "Get Events",
+          "request": {
+            "name": "Get Events",
+            "description": {},
+            "url": {
+              "raw": "https://insight.thirdweb.com/v1/events",
+              "path": [
+                "v1",
+                "events"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "8916b869-a044-451d-b955-74337ad6b9d3",
+          "name": "Get Transactions",
+          "request": {
+            "name": "Get Transactions",
+            "description": {},
+            "url": {
+              "raw": "https://insight.thirdweb.com/v1/transactions",
+              "path": [
+                "v1",
+                "transactions"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "29b3d5ab-ad3f-4fdf-b8d3-01f0e6afdd24",
+          "name": "Get ERC-20 Balances",
+          "request": {
+            "name": "Get ERC-20 Balances",
+            "description": {},
+            "url": {
+              "raw": "https://insight.thirdweb.com/v1/tokens/erc20/{ownerAddress}",
+              "path": [
+                "v1",
+                "tokens",
+                "erc20",
+                "{ownerAddress}"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "86bf1c7b-0b82-4154-9e3c-ba8deab682b0",
+          "name": "Get NFT Balances",
+          "request": {
+            "name": "Get NFT Balances",
+            "description": {},
+            "url": {
+              "raw": "https://insight.thirdweb.com/v1/nfts/balance/{ownerAddress}",
+              "path": [
+                "v1",
+                "nfts",
+                "balance",
+                "{ownerAddress}"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "f11d9de1-018f-4228-af07-8c861919596b",
+          "name": "Get Blocks",
+          "request": {
+            "name": "Get Blocks",
+            "description": {},
+            "url": {
+              "raw": "https://insight.thirdweb.com/v1/blocks",
+              "path": [
+                "v1",
+                "blocks"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "67f61103-605a-4d55-b9a9-65a46d0ffc89",
+          "name": "Get Contract ABI",
+          "request": {
+            "name": "Get Contract ABI",
+            "description": {},
+            "url": {
+              "raw": "https://insight.thirdweb.com/v1/contracts/abi/{contractAddress}",
+              "path": [
+                "v1",
+                "contracts",
+                "abi",
+                "{contractAddress}"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "d2aaf11d-cfa4-4062-81a6-00aa384fa31a",
+          "name": "List Webhooks",
+          "request": {
+            "name": "List Webhooks",
+            "description": {},
+            "url": {
+              "raw": "https://insight.thirdweb.com/v1/webhooks",
+              "path": [
+                "v1",
+                "webhooks"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "id": "cd252257-67d2-43b8-8d0e-d1023b819e9a",
+          "name": "Create Webhook",
+          "request": {
+            "name": "Create Webhook",
+            "description": {},
+            "url": {
+              "raw": "https://insight.thirdweb.com/v1/webhooks",
+              "path": [
+                "v1",
+                "webhooks"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webhookUrl\": \"<string>\",\n  \"filters\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "54597ab4-e904-407d-97c7-c44ae8b7609c",
+      "name": "Nebula",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "29622fd8-07ca-4ac4-86a3-4b90e1f82284",
+          "name": "Chat",
+          "request": {
+            "name": "Chat",
+            "description": {},
+            "url": {
+              "raw": "https://nebula-api.thirdweb.com/chat",
+              "path": [
+                "chat"
+              ],
+              "host": [
+                "nebula-api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "5763f5be-baed-40c6-8aa5-e56d6a1cdaed",
+          "name": "Execute",
+          "request": {
+            "name": "Execute",
+            "description": {},
+            "url": {
+              "raw": "https://nebula-api.thirdweb.com/execute",
+              "path": [
+                "execute"
+              ],
+              "host": [
+                "nebula-api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "9b3655cb-5794-43d6-8a76-04506087a449",
+          "name": "Create Session",
+          "request": {
+            "name": "Create Session",
+            "description": {},
+            "url": {
+              "raw": "https://nebula-api.thirdweb.com/session",
+              "path": [
+                "session"
+              ],
+              "host": [
+                "nebula-api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "5789d9a8-40bb-464d-a2a9-71f320ac044c",
+          "name": "Get Models",
+          "request": {
+            "name": "Get Models",
+            "description": {},
+            "url": {
+              "raw": "https://nebula-api.thirdweb.com/models",
+              "path": [
+                "models"
+              ],
+              "host": [
+                "nebula-api",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "x-secret-key",
+                "value": "{{secretKey}}"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-secret-key"
+      },
+      {
+        "key": "value",
+        "value": "{{secretKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "secretKey",
+      "value": "YOUR_THIRDWEB_SECRET_KEY"
+    },
+    {
+      "key": "clientId",
+      "value": "YOUR_THIRDWEB_CLIENT_ID"
+    }
+  ]
+}

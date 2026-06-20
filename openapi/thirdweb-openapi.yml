@@ -1,0 +1,904 @@
+openapi: 3.0.1
+info:
+  title: thirdweb API
+  description: >-
+    thirdweb provides a unified interface for Web3 development. This
+    specification documents real, publicly documented HTTP endpoints across the
+    thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts,
+    tokens, payments and bridge), Engine (backend transaction execution),
+    Insight (indexed on-chain data) and Nebula (AI blockchain interface).
+    Authenticate frontend usage with an x-client-id header (plus x-bundle-id for
+    native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  termsOfService: https://thirdweb.com/tos
+  contact:
+    name: thirdweb Support
+    url: https://thirdweb.com/support
+  version: '1.22'
+servers:
+  - url: https://api.thirdweb.com
+    description: thirdweb unified API (wallets, transactions, contracts, tokens, payments, bridge)
+  - url: https://engine.thirdweb.com
+    description: thirdweb Engine (backend transaction execution)
+  - url: https://insight.thirdweb.com
+    description: thirdweb Insight (indexed on-chain data)
+  - url: https://nebula-api.thirdweb.com
+    description: thirdweb Nebula (AI blockchain interface)
+security:
+  - SecretKeyAuth: []
+  - ClientAuth: []
+  - BearerAuth: []
+tags:
+  - name: Authentication
+    description: Wallet authentication flows.
+  - name: Wallets
+    description: User and server wallet management, signing, and transfers.
+  - name: Contracts
+    description: Smart contract read, write, and deployment.
+  - name: Transactions
+    description: Transaction submission and status.
+  - name: Tokens
+    description: Token creation, listing, and ownership.
+  - name: Payments
+    description: Bridge, swap, convert, onramp, and x402 payments.
+  - name: Engine
+    description: Backend transaction execution with server wallets.
+  - name: Insight
+    description: Indexed on-chain events, transactions, tokens, and NFTs.
+  - name: Nebula
+    description: AI blockchain interface.
+paths:
+  /v1/auth/initiate:
+    post:
+      operationId: initiateAuth
+      tags:
+        - Authentication
+      summary: Initiate a wallet authentication flow.
+      description: Starts an authentication flow (email, phone, OAuth, or SIWE) and triggers any verification step such as an OTP.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthInitiateRequest'
+      responses:
+        '200':
+          description: Authentication initiated.
+  /v1/auth/complete:
+    post:
+      operationId: completeAuth
+      tags:
+        - Authentication
+      summary: Complete a wallet authentication flow.
+      description: Completes authentication by verifying the challenge and returns a JWT access token and wallet address.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthCompleteRequest'
+      responses:
+        '200':
+          description: Authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResult'
+  /v1/wallets/me:
+    get:
+      operationId: getMyWallet
+      tags:
+        - Wallets
+      summary: Get the authenticated user's wallet.
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Wallet details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wallet'
+  /v1/wallets/user:
+    get:
+      operationId: listUserWallets
+      tags:
+        - Wallets
+      summary: List user wallets.
+      responses:
+        '200':
+          description: A list of user wallets.
+    post:
+      operationId: createUserWallet
+      tags:
+        - Wallets
+      summary: Create a user wallet.
+      responses:
+        '201':
+          description: User wallet created.
+  /v1/wallets/server:
+    get:
+      operationId: listServerWallets
+      tags:
+        - Wallets
+      summary: List server wallets.
+      responses:
+        '200':
+          description: A list of server wallets.
+    post:
+      operationId: createServerWallet
+      tags:
+        - Wallets
+      summary: Create a server wallet.
+      responses:
+        '201':
+          description: Server wallet created.
+  /v1/wallets/{address}/balance:
+    get:
+      operationId: getWalletBalance
+      tags:
+        - Wallets
+      summary: Get a wallet's token balance.
+      parameters:
+        - $ref: '#/components/parameters/Address'
+        - name: chainId
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: tokenAddress
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Balance result.
+  /v1/wallets/sign-message:
+    post:
+      operationId: signMessage
+      tags:
+        - Wallets
+      summary: Sign an arbitrary message with a wallet.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignMessageRequest'
+      responses:
+        '200':
+          description: Signature result.
+  /v1/wallets/sign-typed-data:
+    post:
+      operationId: signTypedData
+      tags:
+        - Wallets
+      summary: Sign EIP-712 typed data with a wallet.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Signature result.
+  /v1/wallets/send:
+    post:
+      operationId: sendTokens
+      tags:
+        - Wallets
+      summary: Send native or ERC-20/721/1155 tokens to recipients.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendTokensRequest'
+      responses:
+        '200':
+          description: Transaction queued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionResult'
+  /v1/contracts/read:
+    post:
+      operationId: readContract
+      tags:
+        - Contracts
+      summary: Read from one or more smart contracts.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContractReadRequest'
+      responses:
+        '200':
+          description: Read results.
+  /v1/contracts/write:
+    post:
+      operationId: writeContract
+      tags:
+        - Contracts
+      summary: Write to one or more smart contracts.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContractWriteRequest'
+      responses:
+        '200':
+          description: Transaction queued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionResult'
+  /v1/contracts:
+    post:
+      operationId: deployContract
+      tags:
+        - Contracts
+      summary: Deploy a smart contract.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Deployment queued.
+  /v1/contracts/{chainId}/{address}/events:
+    get:
+      operationId: getContractEvents
+      tags:
+        - Contracts
+      summary: Get events emitted by a contract.
+      parameters:
+        - $ref: '#/components/parameters/ChainId'
+        - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Contract events.
+  /v1/transactions:
+    get:
+      operationId: listTransactions
+      tags:
+        - Transactions
+      summary: List transactions.
+      responses:
+        '200':
+          description: A list of transactions.
+    post:
+      operationId: sendTransactions
+      tags:
+        - Transactions
+      summary: Send a batch of transactions.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Transactions queued.
+  /v1/transactions/{transactionId}:
+    get:
+      operationId: getTransaction
+      tags:
+        - Transactions
+      summary: Get a transaction by ID.
+      parameters:
+        - name: transactionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Transaction details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionResult'
+  /v1/tokens:
+    get:
+      operationId: listTokens
+      tags:
+        - Tokens
+      summary: List tokens.
+      responses:
+        '200':
+          description: A list of tokens.
+    post:
+      operationId: createToken
+      tags:
+        - Tokens
+      summary: Create (deploy) a token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTokenRequest'
+      responses:
+        '200':
+          description: Token creation queued.
+  /v1/tokens/{chainId}/{address}/owners:
+    get:
+      operationId: getTokenOwners
+      tags:
+        - Tokens
+      summary: Get owners of a token.
+      parameters:
+        - $ref: '#/components/parameters/ChainId'
+        - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Token owners.
+  /v1/bridge/chains:
+    get:
+      operationId: bridgeChains
+      tags:
+        - Payments
+      summary: List chains supported for bridging.
+      responses:
+        '200':
+          description: Supported chains.
+  /v1/bridge/routes:
+    get:
+      operationId: bridgeRoutes
+      tags:
+        - Payments
+      summary: List supported bridge/swap routes.
+      responses:
+        '200':
+          description: Supported routes.
+  /v1/bridge/convert:
+    get:
+      operationId: bridgeConvert
+      tags:
+        - Payments
+      summary: Convert a fiat amount to a crypto quote.
+      responses:
+        '200':
+          description: Conversion quote.
+  /v1/bridge/swap:
+    post:
+      operationId: bridgeSwap
+      tags:
+        - Payments
+      summary: Swap or bridge tokens.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BridgeSwapRequest'
+      responses:
+        '200':
+          description: Swap prepared.
+  /v1/payments/x402/verify:
+    post:
+      operationId: x402Verify
+      tags:
+        - Payments
+      summary: Verify an x402 payment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Verification result.
+  /v1/payments/x402/settle:
+    post:
+      operationId: x402Settle
+      tags:
+        - Payments
+      summary: Settle an x402 payment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Settlement result.
+  /v1/payments/x402/supported:
+    get:
+      operationId: x402Supported
+      tags:
+        - Payments
+      summary: List supported x402 payment methods.
+      responses:
+        '200':
+          description: Supported payment methods.
+  /ai/chat:
+    post:
+      operationId: aiChat
+      tags:
+        - Nebula
+      summary: Chat with the thirdweb AI to read and write on-chain.
+      servers:
+        - url: https://api.thirdweb.com
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: AI chat response.
+  /v1/write/contract:
+    post:
+      operationId: engineWriteContract
+      tags:
+        - Engine
+      summary: Write to a contract via Engine.
+      servers:
+        - url: https://engine.thirdweb.com
+      security:
+        - SecretKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Transaction queued by Engine.
+  /v1/read/contract:
+    post:
+      operationId: engineReadContract
+      tags:
+        - Engine
+      summary: Read from a contract via Engine.
+      servers:
+        - url: https://engine.thirdweb.com
+      security:
+        - SecretKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Read result.
+  /v1/accounts:
+    get:
+      operationId: engineListServerWallets
+      tags:
+        - Engine
+      summary: List Engine server wallets.
+      servers:
+        - url: https://engine.thirdweb.com
+      security:
+        - SecretKeyAuth: []
+      responses:
+        '200':
+          description: A list of server wallets.
+    post:
+      operationId: engineGetOrCreateServerWallet
+      tags:
+        - Engine
+      summary: Get or create an Engine server wallet.
+      servers:
+        - url: https://engine.thirdweb.com
+      security:
+        - SecretKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Server wallet.
+  /v1/events:
+    get:
+      operationId: insightGetEvents
+      tags:
+        - Insight
+      summary: Get indexed on-chain events.
+      servers:
+        - url: https://insight.thirdweb.com
+      security:
+        - ClientAuth: []
+        - SecretKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/InsightChainId'
+      responses:
+        '200':
+          description: Indexed events.
+  /v1/transactions/{contractAddress}:
+    get:
+      operationId: insightGetContractTransactions
+      tags:
+        - Insight
+      summary: Get indexed transactions for a contract.
+      servers:
+        - url: https://insight.thirdweb.com
+      security:
+        - ClientAuth: []
+        - SecretKeyAuth: []
+      parameters:
+        - name: contractAddress
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/InsightChainId'
+      responses:
+        '200':
+          description: Indexed transactions.
+  /v1/tokens/erc20/{ownerAddress}:
+    get:
+      operationId: insightGetErc20Balances
+      tags:
+        - Insight
+      summary: Get ERC-20 balances for an address.
+      servers:
+        - url: https://insight.thirdweb.com
+      security:
+        - ClientAuth: []
+        - SecretKeyAuth: []
+      parameters:
+        - name: ownerAddress
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/InsightChainId'
+      responses:
+        '200':
+          description: ERC-20 balances.
+  /v1/nfts/balance/{ownerAddress}:
+    get:
+      operationId: insightGetNftBalances
+      tags:
+        - Insight
+      summary: Get NFT balances for an address.
+      servers:
+        - url: https://insight.thirdweb.com
+      security:
+        - ClientAuth: []
+        - SecretKeyAuth: []
+      parameters:
+        - name: ownerAddress
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/InsightChainId'
+      responses:
+        '200':
+          description: NFT balances.
+  /v1/webhooks:
+    get:
+      operationId: insightListWebhooks
+      tags:
+        - Insight
+      summary: List Insight webhooks.
+      servers:
+        - url: https://insight.thirdweb.com
+      security:
+        - ClientAuth: []
+        - SecretKeyAuth: []
+      responses:
+        '200':
+          description: A list of webhooks.
+    post:
+      operationId: insightCreateWebhook
+      tags:
+        - Insight
+      summary: Create an Insight webhook for on-chain events.
+      servers:
+        - url: https://insight.thirdweb.com
+      security:
+        - ClientAuth: []
+        - SecretKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookCreateRequest'
+      responses:
+        '201':
+          description: Webhook created.
+  /chat:
+    post:
+      operationId: nebulaChat
+      tags:
+        - Nebula
+      summary: Send a message to a Nebula AI session.
+      servers:
+        - url: https://nebula-api.thirdweb.com
+      security:
+        - SecretKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Nebula response.
+  /execute:
+    post:
+      operationId: nebulaExecute
+      tags:
+        - Nebula
+      summary: Have Nebula execute an on-chain action.
+      servers:
+        - url: https://nebula-api.thirdweb.com
+      security:
+        - SecretKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Execution result.
+  /session:
+    post:
+      operationId: nebulaCreateSession
+      tags:
+        - Nebula
+      summary: Create a Nebula session.
+      servers:
+        - url: https://nebula-api.thirdweb.com
+      security:
+        - SecretKeyAuth: []
+      responses:
+        '200':
+          description: Session created.
+components:
+  securitySchemes:
+    ClientAuth:
+      type: apiKey
+      in: header
+      name: x-client-id
+      description: Client ID for frontend usage. Web sends x-client-id only; native apps also send x-bundle-id.
+    BundleIdAuth:
+      type: apiKey
+      in: header
+      name: x-bundle-id
+      description: Bundle ID for native (desktop/mobile) platform authentication alongside x-client-id.
+    SecretKeyAuth:
+      type: apiKey
+      in: header
+      name: x-secret-key
+      description: Secret key for backend usage; never expose publicly.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from wallet authentication, for frontend usage.
+  parameters:
+    Address:
+      name: address
+      in: path
+      required: true
+      description: An EVM wallet or contract address.
+      schema:
+        type: string
+    ChainId:
+      name: chainId
+      in: path
+      required: true
+      description: The numeric EVM chain ID.
+      schema:
+        type: integer
+    InsightChainId:
+      name: chain
+      in: query
+      required: false
+      description: One or more chain IDs to scope the query.
+      schema:
+        type: integer
+  schemas:
+    AuthInitiateRequest:
+      type: object
+      properties:
+        method:
+          type: string
+          description: Authentication method (e.g. email, phone, siwe, an OAuth provider).
+        email:
+          type: string
+        phone:
+          type: string
+      required:
+        - method
+    AuthCompleteRequest:
+      type: object
+      properties:
+        method:
+          type: string
+        code:
+          type: string
+          description: Verification code or signed payload completing the challenge.
+      required:
+        - method
+    AuthResult:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT access token.
+        walletAddress:
+          type: string
+        isNewUser:
+          type: boolean
+    Wallet:
+      type: object
+      properties:
+        address:
+          type: string
+        smartWalletAddress:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+    SignMessageRequest:
+      type: object
+      properties:
+        from:
+          type: string
+          description: The wallet address signing the message.
+        message:
+          type: string
+        chainId:
+          type: integer
+      required:
+        - message
+    SendTokensRequest:
+      type: object
+      properties:
+        from:
+          type: string
+        chainId:
+          type: integer
+        recipients:
+          type: array
+          items:
+            type: object
+            properties:
+              address:
+                type: string
+              quantity:
+                type: string
+        tokenAddress:
+          type: string
+        tokenId:
+          type: string
+      required:
+        - chainId
+        - recipients
+    ContractCall:
+      type: object
+      properties:
+        contractAddress:
+          type: string
+        method:
+          type: string
+          description: Function signature or name to call.
+        params:
+          type: array
+          items: {}
+      required:
+        - contractAddress
+        - method
+    ContractReadRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        calls:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractCall'
+      required:
+        - chainId
+        - calls
+    ContractWriteRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        from:
+          type: string
+          description: The wallet address sending the transactions.
+        calls:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractCall'
+        idempotencyKey:
+          type: string
+      required:
+        - chainId
+        - calls
+    CreateTokenRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        name:
+          type: string
+        symbol:
+          type: string
+        description:
+          type: string
+        imageUrl:
+          type: string
+        owner:
+          type: string
+        maxSupply:
+          type: string
+      required:
+        - chainId
+        - name
+        - symbol
+        - description
+        - imageUrl
+    BridgeSwapRequest:
+      type: object
+      properties:
+        tokenIn:
+          type: object
+          description: Source token (chainId and address).
+        tokenOut:
+          type: object
+          description: Destination token (chainId and address).
+        exact:
+          type: string
+          description: Exact input or output amount.
+        from:
+          type: string
+        receiver:
+          type: string
+        slippageToleranceBps:
+          type: integer
+      required:
+        - tokenIn
+        - tokenOut
+    TransactionResult:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        transactionHash:
+          type: string
+        chainId:
+          type: integer
+        status:
+          type: string
+          description: Queued, submitted, mined, or errored.
+    WebhookCreateRequest:
+      type: object
+      properties:
+        webhookUrl:
+          type: string
+        name:
+          type: string
+        filters:
+          type: object
+          description: Event/transaction filters scoping which on-chain activity triggers the webhook.
+      required:
+        - webhookUrl
