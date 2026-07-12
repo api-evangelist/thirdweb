@@ -157,6 +157,12 @@ apis:
     https://{chainId}.rpc.thirdweb.com, authenticated by client ID, providing
     standard Ethereum JSON-RPC methods across thousands of supported chains.
 common:
+- type: DomainSecurity
+  url: security/thirdweb-domain-security.yml
+- type: Authentication
+  url: authentication/thirdweb-authentication.yml
+- url: https://blog.thirdweb.com/feed
+  type: Blog
 - type: GitHubOrganization
   url: https://github.com/thirdweb-dev
 - type: LinkedIn
