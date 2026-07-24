@@ -1,0 +1,181 @@
+openapi: 3.0.1
+info:
+  title: thirdweb Authentication Insight API
+  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  termsOfService: https://thirdweb.com/tos
+  contact:
+    name: thirdweb Support
+    url: https://thirdweb.com/support
+  version: '1.22'
+servers:
+- url: https://api.thirdweb.com
+  description: thirdweb unified API (wallets, transactions, contracts, tokens, payments, bridge)
+- url: https://engine.thirdweb.com
+  description: thirdweb Engine (backend transaction execution)
+- url: https://insight.thirdweb.com
+  description: thirdweb Insight (indexed on-chain data)
+- url: https://nebula-api.thirdweb.com
+  description: thirdweb Nebula (AI blockchain interface)
+security:
+- SecretKeyAuth: []
+- ClientAuth: []
+- BearerAuth: []
+tags:
+- name: Insight
+  description: Indexed on-chain events, transactions, tokens, and NFTs.
+paths:
+  /v1/events:
+    get:
+      operationId: insightGetEvents
+      tags:
+      - Insight
+      summary: Get indexed on-chain events.
+      servers:
+      - url: https://insight.thirdweb.com
+      security:
+      - ClientAuth: []
+      - SecretKeyAuth: []
+      parameters:
+      - $ref: '#/components/parameters/InsightChainId'
+      responses:
+        '200':
+          description: Indexed events.
+  /v1/transactions/{contractAddress}:
+    get:
+      operationId: insightGetContractTransactions
+      tags:
+      - Insight
+      summary: Get indexed transactions for a contract.
+      servers:
+      - url: https://insight.thirdweb.com
+      security:
+      - ClientAuth: []
+      - SecretKeyAuth: []
+      parameters:
+      - name: contractAddress
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/InsightChainId'
+      responses:
+        '200':
+          description: Indexed transactions.
+  /v1/tokens/erc20/{ownerAddress}:
+    get:
+      operationId: insightGetErc20Balances
+      tags:
+      - Insight
+      summary: Get ERC-20 balances for an address.
+      servers:
+      - url: https://insight.thirdweb.com
+      security:
+      - ClientAuth: []
+      - SecretKeyAuth: []
+      parameters:
+      - name: ownerAddress
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/InsightChainId'
+      responses:
+        '200':
+          description: ERC-20 balances.
+  /v1/nfts/balance/{ownerAddress}:
+    get:
+      operationId: insightGetNftBalances
+      tags:
+      - Insight
+      summary: Get NFT balances for an address.
+      servers:
+      - url: https://insight.thirdweb.com
+      security:
+      - ClientAuth: []
+      - SecretKeyAuth: []
+      parameters:
+      - name: ownerAddress
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/InsightChainId'
+      responses:
+        '200':
+          description: NFT balances.
+  /v1/webhooks:
+    get:
+      operationId: insightListWebhooks
+      tags:
+      - Insight
+      summary: List Insight webhooks.
+      servers:
+      - url: https://insight.thirdweb.com
+      security:
+      - ClientAuth: []
+      - SecretKeyAuth: []
+      responses:
+        '200':
+          description: A list of webhooks.
+    post:
+      operationId: insightCreateWebhook
+      tags:
+      - Insight
+      summary: Create an Insight webhook for on-chain events.
+      servers:
+      - url: https://insight.thirdweb.com
+      security:
+      - ClientAuth: []
+      - SecretKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookCreateRequest'
+      responses:
+        '201':
+          description: Webhook created.
+components:
+  schemas:
+    WebhookCreateRequest:
+      type: object
+      properties:
+        webhookUrl:
+          type: string
+        name:
+          type: string
+        filters:
+          type: object
+          description: Event/transaction filters scoping which on-chain activity triggers the webhook.
+      required:
+      - webhookUrl
+  parameters:
+    InsightChainId:
+      name: chain
+      in: query
+      required: false
+      description: One or more chain IDs to scope the query.
+      schema:
+        type: integer
+  securitySchemes:
+    ClientAuth:
+      type: apiKey
+      in: header
+      name: x-client-id
+      description: Client ID for frontend usage. Web sends x-client-id only; native apps also send x-bundle-id.
+    BundleIdAuth:
+      type: apiKey
+      in: header
+      name: x-bundle-id
+      description: Bundle ID for native (desktop/mobile) platform authentication alongside x-client-id.
+    SecretKeyAuth:
+      type: apiKey
+      in: header
+      name: x-secret-key
+      description: Secret key for backend usage; never expose publicly.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from wallet authentication, for frontend usage.

@@ -1,0 +1,117 @@
+openapi: 3.0.1
+info:
+  title: thirdweb Authentication API
+  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  termsOfService: https://thirdweb.com/tos
+  contact:
+    name: thirdweb Support
+    url: https://thirdweb.com/support
+  version: '1.22'
+servers:
+- url: https://api.thirdweb.com
+  description: thirdweb unified API (wallets, transactions, contracts, tokens, payments, bridge)
+- url: https://engine.thirdweb.com
+  description: thirdweb Engine (backend transaction execution)
+- url: https://insight.thirdweb.com
+  description: thirdweb Insight (indexed on-chain data)
+- url: https://nebula-api.thirdweb.com
+  description: thirdweb Nebula (AI blockchain interface)
+security:
+- SecretKeyAuth: []
+- ClientAuth: []
+- BearerAuth: []
+tags:
+- name: Authentication
+  description: Wallet authentication flows.
+paths:
+  /v1/auth/initiate:
+    post:
+      operationId: initiateAuth
+      tags:
+      - Authentication
+      summary: Initiate a wallet authentication flow.
+      description: Starts an authentication flow (email, phone, OAuth, or SIWE) and triggers any verification step such as an OTP.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthInitiateRequest'
+      responses:
+        '200':
+          description: Authentication initiated.
+  /v1/auth/complete:
+    post:
+      operationId: completeAuth
+      tags:
+      - Authentication
+      summary: Complete a wallet authentication flow.
+      description: Completes authentication by verifying the challenge and returns a JWT access token and wallet address.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthCompleteRequest'
+      responses:
+        '200':
+          description: Authenticated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResult'
+components:
+  schemas:
+    AuthInitiateRequest:
+      type: object
+      properties:
+        method:
+          type: string
+          description: Authentication method (e.g. email, phone, siwe, an OAuth provider).
+        email:
+          type: string
+        phone:
+          type: string
+      required:
+      - method
+    AuthCompleteRequest:
+      type: object
+      properties:
+        method:
+          type: string
+        code:
+          type: string
+          description: Verification code or signed payload completing the challenge.
+      required:
+      - method
+    AuthResult:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT access token.
+        walletAddress:
+          type: string
+        isNewUser:
+          type: boolean
+  securitySchemes:
+    ClientAuth:
+      type: apiKey
+      in: header
+      name: x-client-id
+      description: Client ID for frontend usage. Web sends x-client-id only; native apps also send x-bundle-id.
+    BundleIdAuth:
+      type: apiKey
+      in: header
+      name: x-bundle-id
+      description: Bundle ID for native (desktop/mobile) platform authentication alongside x-client-id.
+    SecretKeyAuth:
+      type: apiKey
+      in: header
+      name: x-secret-key
+      description: Secret key for backend usage; never expose publicly.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from wallet authentication, for frontend usage.

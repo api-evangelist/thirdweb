@@ -1,0 +1,180 @@
+openapi: 3.0.1
+info:
+  title: thirdweb Authentication Contracts API
+  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  termsOfService: https://thirdweb.com/tos
+  contact:
+    name: thirdweb Support
+    url: https://thirdweb.com/support
+  version: '1.22'
+servers:
+- url: https://api.thirdweb.com
+  description: thirdweb unified API (wallets, transactions, contracts, tokens, payments, bridge)
+- url: https://engine.thirdweb.com
+  description: thirdweb Engine (backend transaction execution)
+- url: https://insight.thirdweb.com
+  description: thirdweb Insight (indexed on-chain data)
+- url: https://nebula-api.thirdweb.com
+  description: thirdweb Nebula (AI blockchain interface)
+security:
+- SecretKeyAuth: []
+- ClientAuth: []
+- BearerAuth: []
+tags:
+- name: Contracts
+  description: Smart contract read, write, and deployment.
+paths:
+  /v1/contracts/read:
+    post:
+      operationId: readContract
+      tags:
+      - Contracts
+      summary: Read from one or more smart contracts.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContractReadRequest'
+      responses:
+        '200':
+          description: Read results.
+  /v1/contracts/write:
+    post:
+      operationId: writeContract
+      tags:
+      - Contracts
+      summary: Write to one or more smart contracts.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContractWriteRequest'
+      responses:
+        '200':
+          description: Transaction queued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionResult'
+  /v1/contracts:
+    post:
+      operationId: deployContract
+      tags:
+      - Contracts
+      summary: Deploy a smart contract.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Deployment queued.
+  /v1/contracts/{chainId}/{address}/events:
+    get:
+      operationId: getContractEvents
+      tags:
+      - Contracts
+      summary: Get events emitted by a contract.
+      parameters:
+      - $ref: '#/components/parameters/ChainId'
+      - $ref: '#/components/parameters/Address'
+      responses:
+        '200':
+          description: Contract events.
+components:
+  schemas:
+    ContractWriteRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        from:
+          type: string
+          description: The wallet address sending the transactions.
+        calls:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractCall'
+        idempotencyKey:
+          type: string
+      required:
+      - chainId
+      - calls
+    TransactionResult:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        transactionHash:
+          type: string
+        chainId:
+          type: integer
+        status:
+          type: string
+          description: Queued, submitted, mined, or errored.
+    ContractCall:
+      type: object
+      properties:
+        contractAddress:
+          type: string
+        method:
+          type: string
+          description: Function signature or name to call.
+        params:
+          type: array
+          items: {}
+      required:
+      - contractAddress
+      - method
+    ContractReadRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        calls:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractCall'
+      required:
+      - chainId
+      - calls
+  parameters:
+    ChainId:
+      name: chainId
+      in: path
+      required: true
+      description: The numeric EVM chain ID.
+      schema:
+        type: integer
+    Address:
+      name: address
+      in: path
+      required: true
+      description: An EVM wallet or contract address.
+      schema:
+        type: string
+  securitySchemes:
+    ClientAuth:
+      type: apiKey
+      in: header
+      name: x-client-id
+      description: Client ID for frontend usage. Web sends x-client-id only; native apps also send x-bundle-id.
+    BundleIdAuth:
+      type: apiKey
+      in: header
+      name: x-bundle-id
+      description: Bundle ID for native (desktop/mobile) platform authentication alongside x-client-id.
+    SecretKeyAuth:
+      type: apiKey
+      in: header
+      name: x-secret-key
+      description: Secret key for backend usage; never expose publicly.
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT access token obtained from wallet authentication, for frontend usage.
