@@ -7,7 +7,20 @@ description: thirdweb is a full-stack web3 development platform. Its HTTP APIs u
   operations, fiat-to-crypto payments and bridging, indexed on-chain data, and an
   AI blockchain interface across thousands of EVM chains and Solana, authenticated
   with a client ID or secret key.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/thirdweb.png
 tags:
 - Web3
 - Blockchain
@@ -19,143 +32,330 @@ created: '2026-06-20'
 modified: '2026-06-20'
 specificationVersion: '0.19'
 apis:
-- aid: thirdweb:thirdweb-api
-  name: thirdweb API
-  tags:
-  - Wallets
-  - Transactions
-  - Tokens
-  - Contracts
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: thirdweb:thirdweb-authentication-api
+  name: thirdweb Authentication API
+  description: Wallet authentication flows.
   humanURL: https://portal.thirdweb.com/reference
   baseURL: https://api.thirdweb.com
+  tags:
+  - Authentication
   properties:
-  - url: https://portal.thirdweb.com/reference
-    type: Documentation
-  - url: https://portal.thirdweb.com/reference
-    type: APIReference
-  - url: openapi/thirdweb-openapi.yml
-    type: OpenAPI
-  - url: collections/thirdweb.postman_collection.json
-    type: PostmanCollection
-  - url: collections/thirdweb.opencollection.json
-    type: OpenCollection
-  description: Unified web3 API for user and server wallets, message and typed-data
-    signing, token transfers, smart contract reads and writes, contract deployment,
-    transaction submission, and authentication across thousands of EVM chains and
-    Solana.
-- aid: thirdweb:thirdweb-engine
-  name: thirdweb Engine
+  - type: OpenAPI
+    url: openapi/thirdweb-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://portal.thirdweb.com/reference
+  - type: APIReference
+    url: https://portal.thirdweb.com/reference
+  - type: PostmanCollection
+    url: collections/thirdweb.postman_collection.json
+  - type: OpenCollection
+    url: collections/thirdweb.opencollection.json
+  - type: Documentation
+    url: https://portal.thirdweb.com/engine
+  - type: APIReference
+    url: https://engine.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/insight
+  - type: APIReference
+    url: https://insight.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/nebula
+  - type: APIReference
+    url: https://nebula-api.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/payments
+  - type: APIReference
+    url: https://playground.thirdweb.com/payments/backend
+  - type: Documentation
+    url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
+- aid: thirdweb:thirdweb-contracts-api
+  name: thirdweb Contracts API
+  description: Smart contract read, write, and deployment.
+  humanURL: https://portal.thirdweb.com/reference
+  baseURL: https://api.thirdweb.com
+  tags:
+  - Contracts
+  properties:
+  - type: OpenAPI
+    url: openapi/thirdweb-contracts-api-openapi.yml
+  - type: Documentation
+    url: https://portal.thirdweb.com/reference
+  - type: APIReference
+    url: https://portal.thirdweb.com/reference
+  - type: PostmanCollection
+    url: collections/thirdweb.postman_collection.json
+  - type: OpenCollection
+    url: collections/thirdweb.opencollection.json
+  - type: Documentation
+    url: https://portal.thirdweb.com/engine
+  - type: APIReference
+    url: https://engine.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/insight
+  - type: APIReference
+    url: https://insight.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/nebula
+  - type: APIReference
+    url: https://nebula-api.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/payments
+  - type: APIReference
+    url: https://playground.thirdweb.com/payments/backend
+  - type: Documentation
+    url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
+- aid: thirdweb:thirdweb-engine-api
+  name: thirdweb Engine API
+  description: Backend transaction execution with server wallets.
+  humanURL: https://portal.thirdweb.com/reference
+  baseURL: https://api.thirdweb.com
   tags:
   - Engine
-  - Backend
-  - Transactions
-  - Server Wallets
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://portal.thirdweb.com/engine
-  baseURL: https://engine.thirdweb.com
   properties:
-  - url: https://portal.thirdweb.com/engine
-    type: Documentation
-  - url: https://engine.thirdweb.com/reference
-    type: APIReference
-  - url: openapi/thirdweb-openapi.yml
-    type: OpenAPI
-  - url: collections/thirdweb.postman_collection.json
-    type: PostmanCollection
-  - url: collections/thirdweb.opencollection.json
-    type: OpenCollection
-  description: Backend transaction execution engine providing server wallets with
-    automated nonce management, gas handling, transaction queueing and retries, plus
-    contract write/read, encoding, signing, and transaction analytics endpoints.
-- aid: thirdweb:thirdweb-insight
-  name: thirdweb Insight
+  - type: OpenAPI
+    url: openapi/thirdweb-engine-api-openapi.yml
+  - type: Documentation
+    url: https://portal.thirdweb.com/reference
+  - type: APIReference
+    url: https://portal.thirdweb.com/reference
+  - type: PostmanCollection
+    url: collections/thirdweb.postman_collection.json
+  - type: OpenCollection
+    url: collections/thirdweb.opencollection.json
+  - type: Documentation
+    url: https://portal.thirdweb.com/engine
+  - type: APIReference
+    url: https://engine.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/insight
+  - type: APIReference
+    url: https://insight.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/nebula
+  - type: APIReference
+    url: https://nebula-api.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/payments
+  - type: APIReference
+    url: https://playground.thirdweb.com/payments/backend
+  - type: Documentation
+    url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
+- aid: thirdweb:thirdweb-insight-api
+  name: thirdweb Insight API
+  description: Indexed on-chain events, transactions, tokens, and NFTs.
+  humanURL: https://portal.thirdweb.com/reference
+  baseURL: https://api.thirdweb.com
   tags:
   - Insight
-  - Indexer
-  - Events
-  - On-Chain Data
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://portal.thirdweb.com/insight
-  baseURL: https://insight.thirdweb.com
   properties:
-  - url: https://portal.thirdweb.com/insight
-    type: Documentation
-  - url: https://insight.thirdweb.com/reference
-    type: APIReference
-  - url: openapi/thirdweb-openapi.yml
-    type: OpenAPI
-  - url: collections/thirdweb.postman_collection.json
-    type: PostmanCollection
-  - url: collections/thirdweb.opencollection.json
-    type: OpenCollection
-  description: Indexed on-chain data API for querying events, transactions, blocks,
-    ERC-20/721/1155 tokens and balances, NFT metadata and transfers, contract ABIs,
-    log decoding, and configurable on-chain webhooks across supported chains.
-- aid: thirdweb:thirdweb-nebula
-  name: thirdweb Nebula
+  - type: OpenAPI
+    url: openapi/thirdweb-insight-api-openapi.yml
+  - type: Documentation
+    url: https://portal.thirdweb.com/reference
+  - type: APIReference
+    url: https://portal.thirdweb.com/reference
+  - type: PostmanCollection
+    url: collections/thirdweb.postman_collection.json
+  - type: OpenCollection
+    url: collections/thirdweb.opencollection.json
+  - type: Documentation
+    url: https://portal.thirdweb.com/engine
+  - type: APIReference
+    url: https://engine.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/insight
+  - type: APIReference
+    url: https://insight.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/nebula
+  - type: APIReference
+    url: https://nebula-api.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/payments
+  - type: APIReference
+    url: https://playground.thirdweb.com/payments/backend
+  - type: Documentation
+    url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
+- aid: thirdweb:thirdweb-nebula-api
+  name: thirdweb Nebula API
+  description: AI blockchain interface.
+  humanURL: https://portal.thirdweb.com/reference
+  baseURL: https://api.thirdweb.com
   tags:
   - Nebula
-  - AI
-  - Agents
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://portal.thirdweb.com/nebula
-  baseURL: https://nebula-api.thirdweb.com
   properties:
-  - url: https://portal.thirdweb.com/nebula
-    type: Documentation
-  - url: https://nebula-api.thirdweb.com/reference
-    type: APIReference
-  - url: openapi/thirdweb-openapi.yml
-    type: OpenAPI
-  - url: collections/thirdweb.postman_collection.json
-    type: PostmanCollection
-  - url: collections/thirdweb.opencollection.json
-    type: OpenCollection
-  description: AI blockchain interface with session-based chat, chat completions,
-    and execute endpoints that read and write on-chain on behalf of agents, plus
-    session management, models listing, and delegated authentication.
-- aid: thirdweb:thirdweb-payments
-  name: thirdweb Payments and Bridge
+  - type: OpenAPI
+    url: openapi/thirdweb-nebula-api-openapi.yml
+  - type: Documentation
+    url: https://portal.thirdweb.com/reference
+  - type: APIReference
+    url: https://portal.thirdweb.com/reference
+  - type: PostmanCollection
+    url: collections/thirdweb.postman_collection.json
+  - type: OpenCollection
+    url: collections/thirdweb.opencollection.json
+  - type: Documentation
+    url: https://portal.thirdweb.com/engine
+  - type: APIReference
+    url: https://engine.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/insight
+  - type: APIReference
+    url: https://insight.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/nebula
+  - type: APIReference
+    url: https://nebula-api.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/payments
+  - type: APIReference
+    url: https://playground.thirdweb.com/payments/backend
+  - type: Documentation
+    url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
+- aid: thirdweb:thirdweb-payments-api
+  name: thirdweb Payments API
+  description: Bridge, swap, convert, onramp, and x402 payments.
+  humanURL: https://portal.thirdweb.com/reference
+  baseURL: https://api.thirdweb.com
   tags:
   - Payments
-  - Bridge
-  - x402
-  - Onramp
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://portal.thirdweb.com/payments
+  properties:
+  - type: OpenAPI
+    url: openapi/thirdweb-payments-api-openapi.yml
+  - type: Documentation
+    url: https://portal.thirdweb.com/reference
+  - type: APIReference
+    url: https://portal.thirdweb.com/reference
+  - type: PostmanCollection
+    url: collections/thirdweb.postman_collection.json
+  - type: OpenCollection
+    url: collections/thirdweb.opencollection.json
+  - type: Documentation
+    url: https://portal.thirdweb.com/engine
+  - type: APIReference
+    url: https://engine.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/insight
+  - type: APIReference
+    url: https://insight.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/nebula
+  - type: APIReference
+    url: https://nebula-api.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/payments
+  - type: APIReference
+    url: https://playground.thirdweb.com/payments/backend
+  - type: Documentation
+    url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
+- aid: thirdweb:thirdweb-tokens-api
+  name: thirdweb Tokens API
+  description: Token creation, listing, and ownership.
+  humanURL: https://portal.thirdweb.com/reference
   baseURL: https://api.thirdweb.com
-  properties:
-  - url: https://portal.thirdweb.com/payments
-    type: Documentation
-  - url: https://playground.thirdweb.com/payments/backend
-    type: APIReference
-  - url: openapi/thirdweb-openapi.yml
-    type: OpenAPI
-  - url: collections/thirdweb.postman_collection.json
-    type: PostmanCollection
-  - url: collections/thirdweb.opencollection.json
-    type: OpenCollection
-  description: Bridge, swap, convert, and onramp any currency across thousands of
-    chains, and accept HTTP and agentic payments with the x402 verify, settle, fetch,
-    and discovery endpoints.
-- aid: thirdweb:thirdweb-rpc-edge
-  name: thirdweb RPC Edge
   tags:
-  - RPC
-  - JSON-RPC
-  - Nodes
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
-  baseURL: https://{chainId}.rpc.thirdweb.com
+  - Tokens
   properties:
-  - url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
-    type: Documentation
-  - url: openapi/thirdweb-openapi.yml
-    type: OpenAPI
-  description: Globally distributed JSON-RPC node access over HTTPS at
-    https://{chainId}.rpc.thirdweb.com, authenticated by client ID, providing
-    standard Ethereum JSON-RPC methods across thousands of supported chains.
+  - type: OpenAPI
+    url: openapi/thirdweb-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://portal.thirdweb.com/reference
+  - type: APIReference
+    url: https://portal.thirdweb.com/reference
+  - type: PostmanCollection
+    url: collections/thirdweb.postman_collection.json
+  - type: OpenCollection
+    url: collections/thirdweb.opencollection.json
+  - type: Documentation
+    url: https://portal.thirdweb.com/engine
+  - type: APIReference
+    url: https://engine.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/insight
+  - type: APIReference
+    url: https://insight.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/nebula
+  - type: APIReference
+    url: https://nebula-api.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/payments
+  - type: APIReference
+    url: https://playground.thirdweb.com/payments/backend
+  - type: Documentation
+    url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
+- aid: thirdweb:thirdweb-transactions-api
+  name: thirdweb Transactions API
+  description: Transaction submission and status.
+  humanURL: https://portal.thirdweb.com/reference
+  baseURL: https://api.thirdweb.com
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/thirdweb-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://portal.thirdweb.com/reference
+  - type: APIReference
+    url: https://portal.thirdweb.com/reference
+  - type: PostmanCollection
+    url: collections/thirdweb.postman_collection.json
+  - type: OpenCollection
+    url: collections/thirdweb.opencollection.json
+  - type: Documentation
+    url: https://portal.thirdweb.com/engine
+  - type: APIReference
+    url: https://engine.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/insight
+  - type: APIReference
+    url: https://insight.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/nebula
+  - type: APIReference
+    url: https://nebula-api.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/payments
+  - type: APIReference
+    url: https://playground.thirdweb.com/payments/backend
+  - type: Documentation
+    url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
+- aid: thirdweb:thirdweb-wallets-api
+  name: thirdweb Wallets API
+  description: User and server wallet management, signing, and transfers.
+  humanURL: https://portal.thirdweb.com/reference
+  baseURL: https://api.thirdweb.com
+  tags:
+  - Wallets
+  properties:
+  - type: OpenAPI
+    url: openapi/thirdweb-wallets-api-openapi.yml
+  - type: Documentation
+    url: https://portal.thirdweb.com/reference
+  - type: APIReference
+    url: https://portal.thirdweb.com/reference
+  - type: PostmanCollection
+    url: collections/thirdweb.postman_collection.json
+  - type: OpenCollection
+    url: collections/thirdweb.opencollection.json
+  - type: Documentation
+    url: https://portal.thirdweb.com/engine
+  - type: APIReference
+    url: https://engine.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/insight
+  - type: APIReference
+    url: https://insight.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/nebula
+  - type: APIReference
+    url: https://nebula-api.thirdweb.com/reference
+  - type: Documentation
+    url: https://portal.thirdweb.com/payments
+  - type: APIReference
+    url: https://playground.thirdweb.com/payments/backend
+  - type: Documentation
+    url: https://portal.thirdweb.com/infrastructure/rpc-edge/overview
 common:
 - type: AgenticAccess
   url: agentic-access/thirdweb-agentic-access.yml
