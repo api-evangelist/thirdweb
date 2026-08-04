@@ -1,0 +1,30 @@
+{
+  "provider": "thirdweb",
+  "sources": [
+    "thirdweb-authentication-api-openapi.yml",
+    "thirdweb-contracts-api-openapi.yml",
+    "thirdweb-engine-api-openapi.yml",
+    "thirdweb-insight-api-openapi.yml",
+    "thirdweb-nebula-api-openapi.yml",
+    "thirdweb-payments-api-openapi.yml",
+    "thirdweb-tokens-api-openapi.yml",
+    "thirdweb-transactions-api-openapi.yml",
+    "thirdweb-wallets-api-openapi.yml"
+  ],
+  "outputs": [
+    "thirdweb-authentication-api-openapi.yml",
+    "thirdweb-contracts-api-openapi.yml",
+    "thirdweb-engine-api-openapi.yml",
+    "thirdweb-insight-api-openapi.yml",
+    "thirdweb-nebula-api-openapi.yml",
+    "thirdweb-payments-api-openapi.yml",
+    "thirdweb-tokens-api-openapi.yml",
+    "thirdweb-transactions-api-openapi.yml",
+    "thirdweb-wallets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
