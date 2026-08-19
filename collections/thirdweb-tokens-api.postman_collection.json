@@ -1,0 +1,309 @@
+{
+  "item": [
+    {
+      "id": "8c2c6f5d-d8b3-4e9f-9880-ffb316c51c78",
+      "name": "Tokens",
+      "description": {
+        "content": "Token creation, listing, and ownership.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9e506470-0438-479d-a856-e29e8071c196",
+          "name": "List tokens.",
+          "request": {
+            "name": "List tokens.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15835db9-74d0-4499-9558-11086cf2dc2b",
+              "name": "A list of tokens.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b0c320e-d3f1-41d6-83d8-feb4a9781f45",
+          "name": "Create (deploy) a token.",
+          "request": {
+            "name": "Create (deploy) a token.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chainId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"maxSupply\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "abea4935-2465-48bf-8e67-7ced0321aa67",
+              "name": "Token creation queued.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chainId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"symbol\": \"<string>\",\n  \"description\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"maxSupply\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdfc6738-6f11-42d6-9356-84d455573b5c",
+          "name": "Get owners of a token.",
+          "request": {
+            "name": "Get owners of a token.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "tokens",
+                ":chainId",
+                ":address",
+                "owners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "chainId",
+                  "description": "(Required) The numeric EVM chain ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) An EVM wallet or contract address."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46dfa142-bffd-4078-916f-b13deb197559",
+              "name": "Token owners.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "tokens",
+                    ":chainId",
+                    ":address",
+                    "owners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "chainId",
+                      "description": "(Required) The numeric EVM chain ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) An EVM wallet or contract address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.thirdweb.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-secret-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f9da7ce1-6c7a-4208-9778-e2c352d0b4e9",
+    "name": "thirdweb Authentication Tokens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.\n\nContact Support:\n Name: thirdweb Support",
+      "type": "text/plain"
+    }
+  }
+}

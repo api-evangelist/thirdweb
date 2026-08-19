@@ -1,0 +1,434 @@
+{
+  "item": [
+    {
+      "id": "7e40d57e-0412-4589-8daf-5288f0522843",
+      "name": "Contracts",
+      "description": {
+        "content": "Smart contract read, write, and deployment.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "babef5c0-7973-45b0-a918-85436cdd4494",
+          "name": "Read from one or more smart contracts.",
+          "request": {
+            "name": "Read from one or more smart contracts.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "contracts",
+                "read"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chainId\": \"<integer>\",\n  \"calls\": [\n    {\n      \"contractAddress\": \"<string>\",\n      \"method\": \"<string>\"\n    },\n    {\n      \"contractAddress\": \"<string>\",\n      \"method\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6725f35e-de85-4a74-89ea-559661b8d2f4",
+              "name": "Read results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contracts",
+                    "read"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chainId\": \"<integer>\",\n  \"calls\": [\n    {\n      \"contractAddress\": \"<string>\",\n      \"method\": \"<string>\"\n    },\n    {\n      \"contractAddress\": \"<string>\",\n      \"method\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd42d0b9-2849-449a-8287-9b4fff126fdc",
+          "name": "Write to one or more smart contracts.",
+          "request": {
+            "name": "Write to one or more smart contracts.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "contracts",
+                "write"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chainId\": \"<integer>\",\n  \"calls\": [\n    {\n      \"contractAddress\": \"<string>\",\n      \"method\": \"<string>\"\n    },\n    {\n      \"contractAddress\": \"<string>\",\n      \"method\": \"<string>\"\n    }\n  ],\n  \"from\": \"<string>\",\n  \"idempotencyKey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04e8598a-acb5-4c6f-b51a-82c076b88c4d",
+              "name": "Transaction queued.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contracts",
+                    "write"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chainId\": \"<integer>\",\n  \"calls\": [\n    {\n      \"contractAddress\": \"<string>\",\n      \"method\": \"<string>\"\n    },\n    {\n      \"contractAddress\": \"<string>\",\n      \"method\": \"<string>\"\n    }\n  ],\n  \"from\": \"<string>\",\n  \"idempotencyKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactionId\": \"string\",\n  \"transactionHash\": \"string\",\n  \"chainId\": 9748,\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8847c86-288b-4df6-ae96-3de4125048f8",
+          "name": "Deploy a smart contract.",
+          "request": {
+            "name": "Deploy a smart contract.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "contracts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce8106ad-b06b-4551-a3c1-8b655d4d69e6",
+              "name": "Deployment queued.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a52921f8-9b9c-4831-a02b-cfb9755c73fc",
+          "name": "Get events emitted by a contract.",
+          "request": {
+            "name": "Get events emitted by a contract.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "contracts",
+                ":chainId",
+                ":address",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "chainId",
+                  "description": "(Required) The numeric EVM chain ID."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) An EVM wallet or contract address."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f7c6f86-deb2-46ec-b709-b9568808d257",
+              "name": "Contract events.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contracts",
+                    ":chainId",
+                    ":address",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "chainId",
+                      "description": "(Required) The numeric EVM chain ID."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) An EVM wallet or contract address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.thirdweb.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-secret-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "882919d8-6f6e-4499-b327-05fe041aa958",
+    "name": "thirdweb Authentication Contracts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.\n\nContact Support:\n Name: thirdweb Support",
+      "type": "text/plain"
+    }
+  }
+}

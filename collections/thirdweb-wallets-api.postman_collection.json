@@ -1,0 +1,804 @@
+{
+  "item": [
+    {
+      "id": "82b67a68-e532-478c-ac82-b1b4cb3aa421",
+      "name": "Wallets",
+      "description": {
+        "content": "User and server wallet management, signing, and transfers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "56ddbab3-61eb-449f-acb6-f0b237153304",
+          "name": "Get the authenticated user's wallet.",
+          "request": {
+            "name": "Get the authenticated user's wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6db4fa5f-8c22-4c98-9b8e-1087193d7521",
+              "name": "Wallet details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wallets",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"string\",\n  \"smartWalletAddress\": \"string\",\n  \"createdAt\": \"1995-12-06T07:15:58.140Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e3defde-db12-4360-a5fb-6fb5ecd3d1b9",
+          "name": "List user wallets.",
+          "request": {
+            "name": "List user wallets.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32cce187-95bd-4c45-8ed7-8a12fee3e75a",
+              "name": "A list of user wallets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wallets",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf17508f-1692-4d07-adb0-9fe84892a869",
+          "name": "Create a user wallet.",
+          "request": {
+            "name": "Create a user wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ce0fe00-5187-4fb1-a4db-e6bd1f54599c",
+              "name": "User wallet created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wallets",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d6f7edb-28b3-4a40-85e5-751adfdb3093",
+          "name": "List server wallets.",
+          "request": {
+            "name": "List server wallets.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                "server"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b8fa358-0586-4f80-9c65-5ad3319e38ba",
+              "name": "A list of server wallets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wallets",
+                    "server"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bbf2238-6626-4039-b81b-b5229f5e96fd",
+          "name": "Create a server wallet.",
+          "request": {
+            "name": "Create a server wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                "server"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21c0a29b-4c3b-4a79-92c9-23b52b349180",
+              "name": "Server wallet created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wallets",
+                    "server"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fff1e1b-0b28-4076-b022-202042648882",
+          "name": "Get a wallet's token balance.",
+          "request": {
+            "name": "Get a wallet's token balance.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                ":address",
+                "balance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chainId",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "tokenAddress",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) An EVM wallet or contract address."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c1f8e44-13cb-4b76-86e5-11945558a6a5",
+              "name": "Balance result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wallets",
+                    ":address",
+                    "balance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "chainId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tokenAddress",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) An EVM wallet or contract address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e30268f-dec2-4bdf-aab7-5c5416bb39a5",
+          "name": "Sign an arbitrary message with a wallet.",
+          "request": {
+            "name": "Sign an arbitrary message with a wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                "sign-message"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\",\n  \"from\": \"<string>\",\n  \"chainId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3dcbfd09-5b97-4117-b671-2dda23a9aca2",
+              "name": "Signature result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wallets",
+                    "sign-message"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"from\": \"<string>\",\n  \"chainId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b07b8fa-9c1b-40cf-b572-cdb359aa47d0",
+          "name": "Sign EIP-712 typed data with a wallet.",
+          "request": {
+            "name": "Sign EIP-712 typed data with a wallet.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                "sign-typed-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a88eaa7-28f3-4a01-b83e-9515891605f1",
+              "name": "Signature result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wallets",
+                    "sign-typed-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "276d9032-879d-47b4-bb9f-87cac0cb47ea",
+          "name": "Send native or ERC-20/721/1155 tokens to recipients.",
+          "request": {
+            "name": "Send native or ERC-20/721/1155 tokens to recipients.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                "send"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chainId\": \"<integer>\",\n  \"recipients\": [\n    {\n      \"address\": \"<string>\",\n      \"quantity\": \"<string>\"\n    },\n    {\n      \"address\": \"<string>\",\n      \"quantity\": \"<string>\"\n    }\n  ],\n  \"from\": \"<string>\",\n  \"tokenAddress\": \"<string>\",\n  \"tokenId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88ab14da-c943-40af-834c-052d90032c66",
+              "name": "Transaction queued.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wallets",
+                    "send"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-secret-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chainId\": \"<integer>\",\n  \"recipients\": [\n    {\n      \"address\": \"<string>\",\n      \"quantity\": \"<string>\"\n    },\n    {\n      \"address\": \"<string>\",\n      \"quantity\": \"<string>\"\n    }\n  ],\n  \"from\": \"<string>\",\n  \"tokenAddress\": \"<string>\",\n  \"tokenId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactionId\": \"string\",\n  \"transactionHash\": \"string\",\n  \"chainId\": 210,\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.thirdweb.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-secret-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4c6e0d38-1dcf-4286-a090-e80ff1b3b391",
+    "name": "thirdweb Authentication Wallets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.\n\nContact Support:\n Name: thirdweb Support",
+      "type": "text/plain"
+    }
+  }
+}

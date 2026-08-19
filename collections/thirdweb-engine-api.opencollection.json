@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "thirdweb Authentication Engine API",
+    "version": "1.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-secret-key",
+      "value": "{{x-secret-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Engine",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Write to a contract via Engine.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/write/contract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-secret-key",
+              "value": "{{x-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Write to a contract via Engine."
+        },
+        {
+          "info": {
+            "name": "Read from a contract via Engine.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/read/contract",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-secret-key",
+              "value": "{{x-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Read from a contract via Engine."
+        },
+        {
+          "info": {
+            "name": "List Engine server wallets.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/accounts",
+            "auth": {
+              "type": "apikey",
+              "key": "x-secret-key",
+              "value": "{{x-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List Engine server wallets."
+        },
+        {
+          "info": {
+            "name": "Get or create an Engine server wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/accounts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-secret-key",
+              "value": "{{x-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get or create an Engine server wallet."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "thirdweb Authentication Contracts API",
+    "version": "1.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-secret-key",
+      "value": "{{x-secret-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contracts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read from one or more smart contracts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/contracts/read",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Read from one or more smart contracts."
+        },
+        {
+          "info": {
+            "name": "Write to one or more smart contracts.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/contracts/write",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Write to one or more smart contracts."
+        },
+        {
+          "info": {
+            "name": "Deploy a smart contract.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/contracts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deploy a smart contract."
+        },
+        {
+          "info": {
+            "name": "Get events emitted by a contract.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/contracts/:chainId/:address/events",
+            "params": [
+              {
+                "name": "chainId",
+                "value": "",
+                "type": "path",
+                "description": "The numeric EVM chain ID."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "An EVM wallet or contract address."
+              }
+            ]
+          },
+          "docs": "Get events emitted by a contract."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

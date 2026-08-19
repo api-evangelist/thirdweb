@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "thirdweb Authentication API",
+    "version": "1.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-secret-key",
+      "value": "{{x-secret-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate a wallet authentication flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/auth/initiate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts an authentication flow (email, phone, OAuth, or SIWE) and triggers any verification step such as an OTP."
+        },
+        {
+          "info": {
+            "name": "Complete a wallet authentication flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/auth/complete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Completes authentication by verifying the challenge and returns a JWT access token and wallet address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

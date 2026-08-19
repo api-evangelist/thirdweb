@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "thirdweb Authentication Nebula API",
+    "version": "1.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-secret-key",
+      "value": "{{x-secret-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Nebula",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Chat with the thirdweb AI to read and write on-chain.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/ai/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Chat with the thirdweb AI to read and write on-chain."
+        },
+        {
+          "info": {
+            "name": "Send a message to a Nebula AI session.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/chat",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-secret-key",
+              "value": "{{x-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Send a message to a Nebula AI session."
+        },
+        {
+          "info": {
+            "name": "Have Nebula execute an on-chain action.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-secret-key",
+              "value": "{{x-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Have Nebula execute an on-chain action."
+        },
+        {
+          "info": {
+            "name": "Create a Nebula session.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/session",
+            "auth": {
+              "type": "apikey",
+              "key": "x-secret-key",
+              "value": "{{x-secret-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create a Nebula session."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

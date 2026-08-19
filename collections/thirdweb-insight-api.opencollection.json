@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "thirdweb Authentication Insight API",
+    "version": "1.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-secret-key",
+      "value": "{{x-secret-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Insight",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get indexed on-chain events.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/events",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query",
+                "description": "One or more chain IDs to scope the query."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-client-id",
+              "value": "{{x-client-id}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get indexed on-chain events."
+        },
+        {
+          "info": {
+            "name": "Get indexed transactions for a contract.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/transactions/:contractAddress",
+            "params": [
+              {
+                "name": "contractAddress",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query",
+                "description": "One or more chain IDs to scope the query."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-client-id",
+              "value": "{{x-client-id}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get indexed transactions for a contract."
+        },
+        {
+          "info": {
+            "name": "Get ERC-20 balances for an address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/tokens/erc20/:ownerAddress",
+            "params": [
+              {
+                "name": "ownerAddress",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query",
+                "description": "One or more chain IDs to scope the query."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-client-id",
+              "value": "{{x-client-id}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get ERC-20 balances for an address."
+        },
+        {
+          "info": {
+            "name": "Get NFT balances for an address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/nfts/balance/:ownerAddress",
+            "params": [
+              {
+                "name": "ownerAddress",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query",
+                "description": "One or more chain IDs to scope the query."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-client-id",
+              "value": "{{x-client-id}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get NFT balances for an address."
+        },
+        {
+          "info": {
+            "name": "List Insight webhooks.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/webhooks",
+            "auth": {
+              "type": "apikey",
+              "key": "x-client-id",
+              "value": "{{x-client-id}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List Insight webhooks."
+        },
+        {
+          "info": {
+            "name": "Create an Insight webhook for on-chain events.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/webhooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-client-id",
+              "value": "{{x-client-id}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create an Insight webhook for on-chain events."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

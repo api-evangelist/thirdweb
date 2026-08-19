@@ -1,0 +1,712 @@
+{
+  "item": [
+    {
+      "id": "9726df67-6f5b-4985-acb0-d514efab4efc",
+      "name": "Insight",
+      "description": {
+        "content": "Indexed on-chain events, transactions, tokens, and NFTs.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f7b378d-15ce-4d44-a7bd-d01ca7ffd000",
+          "name": "Get indexed on-chain events.",
+          "request": {
+            "name": "Get indexed on-chain events.",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v1",
+                "events"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<integer>",
+                  "description": "One or more chain IDs to scope the query."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-client-id"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "89aab76e-6046-4b14-b14b-6510080cbb77",
+              "name": "Indexed events.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v1",
+                    "events"
+                  ],
+                  "host": [
+                    "insight",
+                    "thirdweb",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c474718-0412-4014-9050-9674436b2e60",
+          "name": "Get indexed transactions for a contract.",
+          "request": {
+            "name": "Get indexed transactions for a contract.",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v1",
+                "transactions",
+                ":contractAddress"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<integer>",
+                  "description": "One or more chain IDs to scope the query."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contractAddress",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-client-id"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3e9c389a-0fa2-4c24-b5f1-bf22629e3485",
+              "name": "Indexed transactions.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v1",
+                    "transactions",
+                    ":contractAddress"
+                  ],
+                  "host": [
+                    "insight",
+                    "thirdweb",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contractAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3296aa6c-5dda-4df2-b626-effa5375cb45",
+          "name": "Get ERC-20 balances for an address.",
+          "request": {
+            "name": "Get ERC-20 balances for an address.",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v1",
+                "tokens",
+                "erc20",
+                ":ownerAddress"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<integer>",
+                  "description": "One or more chain IDs to scope the query."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ownerAddress",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-client-id"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2c3d8652-7091-47e9-aaa9-788c723fb33e",
+              "name": "ERC-20 balances.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v1",
+                    "tokens",
+                    "erc20",
+                    ":ownerAddress"
+                  ],
+                  "host": [
+                    "insight",
+                    "thirdweb",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ownerAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b6daaeb-d493-4db3-a899-cd0e912e88b2",
+          "name": "Get NFT balances for an address.",
+          "request": {
+            "name": "Get NFT balances for an address.",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v1",
+                "nfts",
+                "balance",
+                ":ownerAddress"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "<integer>",
+                  "description": "One or more chain IDs to scope the query."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ownerAddress",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-client-id"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "60532f04-6698-4012-b4db-802a0a46f7c2",
+              "name": "NFT balances.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v1",
+                    "nfts",
+                    "balance",
+                    ":ownerAddress"
+                  ],
+                  "host": [
+                    "insight",
+                    "thirdweb",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "chain",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ownerAddress",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12366c04-d070-414f-a77c-c40378f717be",
+          "name": "List Insight webhooks.",
+          "request": {
+            "name": "List Insight webhooks.",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v1",
+                "webhooks"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-client-id"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bd6fc19d-57bd-46df-bdb3-442105beb6c2",
+              "name": "A list of webhooks.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v1",
+                    "webhooks"
+                  ],
+                  "host": [
+                    "insight",
+                    "thirdweb",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33ead2c4-091c-4205-9ea7-78b49059d30b",
+          "name": "Create an Insight webhook for on-chain events.",
+          "request": {
+            "name": "Create an Insight webhook for on-chain events.",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v1",
+                "webhooks"
+              ],
+              "host": [
+                "insight",
+                "thirdweb",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-client-id"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"webhookUrl\": \"<string>\",\n  \"name\": \"<string>\",\n  \"filters\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "22938df2-ec88-4d8c-8732-b7d06998d3b4",
+              "name": "Webhook created.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v1",
+                    "webhooks"
+                  ],
+                  "host": [
+                    "insight",
+                    "thirdweb",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"webhookUrl\": \"<string>\",\n  \"name\": \"<string>\",\n  \"filters\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.thirdweb.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-secret-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b9a22c44-4e7c-4794-accd-2d6294796f3c",
+    "name": "thirdweb Authentication Insight API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.\n\nContact Support:\n Name: thirdweb Support",
+      "type": "text/plain"
+    }
+  }
+}

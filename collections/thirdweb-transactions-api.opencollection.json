@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "thirdweb Authentication Transactions API",
+    "version": "1.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-secret-key",
+      "value": "{{x-secret-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List transactions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/transactions"
+          },
+          "docs": "List transactions."
+        },
+        {
+          "info": {
+            "name": "Send a batch of transactions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/transactions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a batch of transactions."
+        },
+        {
+          "info": {
+            "name": "Get a transaction by ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/transactions/:transactionId",
+            "params": [
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a transaction by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

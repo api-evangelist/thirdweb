@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "thirdweb Authentication Wallets API",
+    "version": "1.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-secret-key",
+      "value": "{{x-secret-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Wallets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the authenticated user's wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/wallets/me",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get the authenticated user's wallet."
+        },
+        {
+          "info": {
+            "name": "List user wallets.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/wallets/user"
+          },
+          "docs": "List user wallets."
+        },
+        {
+          "info": {
+            "name": "Create a user wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/wallets/user"
+          },
+          "docs": "Create a user wallet."
+        },
+        {
+          "info": {
+            "name": "List server wallets.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/wallets/server"
+          },
+          "docs": "List server wallets."
+        },
+        {
+          "info": {
+            "name": "Create a server wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/wallets/server"
+          },
+          "docs": "Create a server wallet."
+        },
+        {
+          "info": {
+            "name": "Get a wallet's token balance.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/wallets/:address/balance",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "An EVM wallet or contract address."
+              },
+              {
+                "name": "chainId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tokenAddress",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a wallet's token balance."
+        },
+        {
+          "info": {
+            "name": "Sign an arbitrary message with a wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/wallets/sign-message",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign an arbitrary message with a wallet."
+        },
+        {
+          "info": {
+            "name": "Sign EIP-712 typed data with a wallet.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/wallets/sign-typed-data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sign EIP-712 typed data with a wallet."
+        },
+        {
+          "info": {
+            "name": "Send native or ERC-20/721/1155 tokens to recipients.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/wallets/send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send native or ERC-20/721/1155 tokens to recipients."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

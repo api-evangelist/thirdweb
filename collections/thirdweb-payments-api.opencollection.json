@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "thirdweb Authentication Payments API",
+    "version": "1.22"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-secret-key",
+      "value": "{{x-secret-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List chains supported for bridging.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/bridge/chains"
+          },
+          "docs": "List chains supported for bridging."
+        },
+        {
+          "info": {
+            "name": "List supported bridge/swap routes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/bridge/routes"
+          },
+          "docs": "List supported bridge/swap routes."
+        },
+        {
+          "info": {
+            "name": "Convert a fiat amount to a crypto quote.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/bridge/convert"
+          },
+          "docs": "Convert a fiat amount to a crypto quote."
+        },
+        {
+          "info": {
+            "name": "Swap or bridge tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/bridge/swap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Swap or bridge tokens."
+        },
+        {
+          "info": {
+            "name": "Verify an x402 payment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/payments/x402/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify an x402 payment."
+        },
+        {
+          "info": {
+            "name": "Settle an x402 payment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thirdweb.com/v1/payments/x402/settle",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Settle an x402 payment."
+        },
+        {
+          "info": {
+            "name": "List supported x402 payment methods.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thirdweb.com/v1/payments/x402/supported"
+          },
+          "docs": "List supported x402 payment methods."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
