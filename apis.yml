@@ -30,7 +30,7 @@ tags:
 - Indexer
 created: '2026-06-20'
 modified: '2026-06-20'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: thirdweb:thirdweb-authentication-api
   name: thirdweb Authentication API
