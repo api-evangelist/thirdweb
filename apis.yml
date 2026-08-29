@@ -7,6 +7,18 @@ description: thirdweb is a full-stack web3 development platform. Its HTTP APIs u
   operations, fiat-to-crypto payments and bridging, indexed on-chain data, and an
   AI blockchain interface across thousands of EVM chains and Solana, authenticated
   with a client ID or secret key.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
