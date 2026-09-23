@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: thirdweb Authentication Engine API
-  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  title: thirdweb Engine API
+  description: thirdweb provides a unified interface for Web3 development.
   termsOfService: https://thirdweb.com/tos
   contact:
     name: thirdweb Support
@@ -29,7 +29,7 @@ paths:
       operationId: engineWriteContract
       tags:
       - Engine
-      summary: Write to a contract via Engine.
+      summary: Write to a contract via Engine
       servers:
       - url: https://engine.thirdweb.com
       security:
@@ -48,7 +48,7 @@ paths:
       operationId: engineReadContract
       tags:
       - Engine
-      summary: Read from a contract via Engine.
+      summary: Read from a contract via Engine
       servers:
       - url: https://engine.thirdweb.com
       security:
@@ -67,7 +67,7 @@ paths:
       operationId: engineListServerWallets
       tags:
       - Engine
-      summary: List Engine server wallets.
+      summary: List Engine server wallets
       servers:
       - url: https://engine.thirdweb.com
       security:
@@ -79,7 +79,7 @@ paths:
       operationId: engineGetOrCreateServerWallet
       tags:
       - Engine
-      summary: Get or create an Engine server wallet.
+      summary: Get or create an Engine server wallet
       servers:
       - url: https://engine.thirdweb.com
       security:

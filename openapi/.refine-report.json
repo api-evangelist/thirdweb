@@ -1,15 +1,7 @@
 {
   "provider": "thirdweb",
   "sources": [
-    "thirdweb-authentication-api-openapi.yml",
-    "thirdweb-contracts-api-openapi.yml",
-    "thirdweb-engine-api-openapi.yml",
-    "thirdweb-insight-api-openapi.yml",
-    "thirdweb-nebula-api-openapi.yml",
-    "thirdweb-payments-api-openapi.yml",
-    "thirdweb-tokens-api-openapi.yml",
-    "thirdweb-transactions-api-openapi.yml",
-    "thirdweb-wallets-api-openapi.yml"
+    "_original/thirdweb-openapi.yml"
   ],
   "outputs": [
     "thirdweb-authentication-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "thirdweb-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "thirdweb-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thirdweb-contracts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thirdweb-engine-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thirdweb-insight-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thirdweb-nebula-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thirdweb-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thirdweb-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thirdweb-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thirdweb-wallets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

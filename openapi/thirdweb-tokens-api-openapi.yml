@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: thirdweb Authentication Tokens API
-  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  title: thirdweb Tokens API
+  description: thirdweb provides a unified interface for Web3 development.
   termsOfService: https://thirdweb.com/tos
   contact:
     name: thirdweb Support
@@ -29,7 +29,7 @@ paths:
       operationId: listTokens
       tags:
       - Tokens
-      summary: List tokens.
+      summary: List tokens
       responses:
         '200':
           description: A list of tokens.
@@ -37,7 +37,7 @@ paths:
       operationId: createToken
       tags:
       - Tokens
-      summary: Create (deploy) a token.
+      summary: Create (deploy) a token
       requestBody:
         required: true
         content:
@@ -52,7 +52,7 @@ paths:
       operationId: getTokenOwners
       tags:
       - Tokens
-      summary: Get owners of a token.
+      summary: Get owners of a token
       parameters:
       - $ref: '#/components/parameters/ChainId'
       - $ref: '#/components/parameters/Address'
@@ -60,21 +60,6 @@ paths:
         '200':
           description: Token owners.
 components:
-  parameters:
-    Address:
-      name: address
-      in: path
-      required: true
-      description: An EVM wallet or contract address.
-      schema:
-        type: string
-    ChainId:
-      name: chainId
-      in: path
-      required: true
-      description: The numeric EVM chain ID.
-      schema:
-        type: integer
   schemas:
     CreateTokenRequest:
       type: object
@@ -99,6 +84,21 @@ components:
       - symbol
       - description
       - imageUrl
+  parameters:
+    Address:
+      name: address
+      in: path
+      required: true
+      description: An EVM wallet or contract address.
+      schema:
+        type: string
+    ChainId:
+      name: chainId
+      in: path
+      required: true
+      description: The numeric EVM chain ID.
+      schema:
+        type: integer
   securitySchemes:
     ClientAuth:
       type: apiKey

@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: thirdweb Authentication Insight API
-  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  title: thirdweb Insight API
+  description: thirdweb provides a unified interface for Web3 development.
   termsOfService: https://thirdweb.com/tos
   contact:
     name: thirdweb Support
@@ -29,7 +29,7 @@ paths:
       operationId: insightGetEvents
       tags:
       - Insight
-      summary: Get indexed on-chain events.
+      summary: Get indexed on-chain events
       servers:
       - url: https://insight.thirdweb.com
       security:
@@ -45,7 +45,7 @@ paths:
       operationId: insightGetContractTransactions
       tags:
       - Insight
-      summary: Get indexed transactions for a contract.
+      summary: Get indexed transactions for a contract
       servers:
       - url: https://insight.thirdweb.com
       security:
@@ -66,7 +66,7 @@ paths:
       operationId: insightGetErc20Balances
       tags:
       - Insight
-      summary: Get ERC-20 balances for an address.
+      summary: Get ERC-20 balances for an address
       servers:
       - url: https://insight.thirdweb.com
       security:
@@ -87,7 +87,7 @@ paths:
       operationId: insightGetNftBalances
       tags:
       - Insight
-      summary: Get NFT balances for an address.
+      summary: Get NFT balances for an address
       servers:
       - url: https://insight.thirdweb.com
       security:
@@ -108,7 +108,7 @@ paths:
       operationId: insightListWebhooks
       tags:
       - Insight
-      summary: List Insight webhooks.
+      summary: List Insight webhooks
       servers:
       - url: https://insight.thirdweb.com
       security:
@@ -121,7 +121,7 @@ paths:
       operationId: insightCreateWebhook
       tags:
       - Insight
-      summary: Create an Insight webhook for on-chain events.
+      summary: Create an Insight webhook for on-chain events
       servers:
       - url: https://insight.thirdweb.com
       security:

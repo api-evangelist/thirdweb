@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: thirdweb Authentication Payments API
-  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  title: thirdweb Payments API
+  description: thirdweb provides a unified interface for Web3 development.
   termsOfService: https://thirdweb.com/tos
   contact:
     name: thirdweb Support
@@ -29,7 +29,7 @@ paths:
       operationId: bridgeChains
       tags:
       - Payments
-      summary: List chains supported for bridging.
+      summary: List chains supported for bridging
       responses:
         '200':
           description: Supported chains.
@@ -38,7 +38,7 @@ paths:
       operationId: bridgeRoutes
       tags:
       - Payments
-      summary: List supported bridge/swap routes.
+      summary: List supported bridge/swap routes
       responses:
         '200':
           description: Supported routes.
@@ -47,7 +47,7 @@ paths:
       operationId: bridgeConvert
       tags:
       - Payments
-      summary: Convert a fiat amount to a crypto quote.
+      summary: Convert a fiat amount to a crypto quote
       responses:
         '200':
           description: Conversion quote.
@@ -56,7 +56,7 @@ paths:
       operationId: bridgeSwap
       tags:
       - Payments
-      summary: Swap or bridge tokens.
+      summary: Swap or bridge tokens
       requestBody:
         required: true
         content:
@@ -71,7 +71,7 @@ paths:
       operationId: x402Verify
       tags:
       - Payments
-      summary: Verify an x402 payment.
+      summary: Verify an x402 payment
       requestBody:
         required: true
         content:
@@ -86,7 +86,7 @@ paths:
       operationId: x402Settle
       tags:
       - Payments
-      summary: Settle an x402 payment.
+      summary: Settle an x402 payment
       requestBody:
         required: true
         content:
@@ -101,7 +101,7 @@ paths:
       operationId: x402Supported
       tags:
       - Payments
-      summary: List supported x402 payment methods.
+      summary: List supported x402 payment methods
       responses:
         '200':
           description: Supported payment methods.

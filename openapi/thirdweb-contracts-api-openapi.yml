@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: thirdweb Authentication Contracts API
-  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  title: thirdweb Contracts API
+  description: thirdweb provides a unified interface for Web3 development.
   termsOfService: https://thirdweb.com/tos
   contact:
     name: thirdweb Support
@@ -29,7 +29,7 @@ paths:
       operationId: readContract
       tags:
       - Contracts
-      summary: Read from one or more smart contracts.
+      summary: Read from one or more smart contracts
       requestBody:
         required: true
         content:
@@ -44,7 +44,7 @@ paths:
       operationId: writeContract
       tags:
       - Contracts
-      summary: Write to one or more smart contracts.
+      summary: Write to one or more smart contracts
       requestBody:
         required: true
         content:
@@ -63,7 +63,7 @@ paths:
       operationId: deployContract
       tags:
       - Contracts
-      summary: Deploy a smart contract.
+      summary: Deploy a smart contract
       requestBody:
         required: true
         content:
@@ -78,7 +78,7 @@ paths:
       operationId: getContractEvents
       tags:
       - Contracts
-      summary: Get events emitted by a contract.
+      summary: Get events emitted by a contract
       parameters:
       - $ref: '#/components/parameters/ChainId'
       - $ref: '#/components/parameters/Address'
@@ -87,6 +87,30 @@ paths:
           description: Contract events.
 components:
   schemas:
+    TransactionResult:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        transactionHash:
+          type: string
+        chainId:
+          type: integer
+        status:
+          type: string
+          description: Queued, submitted, mined, or errored.
+    ContractReadRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        calls:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractCall'
+      required:
+      - chainId
+      - calls
     ContractWriteRequest:
       type: object
       properties:
@@ -104,18 +128,6 @@ components:
       required:
       - chainId
       - calls
-    TransactionResult:
-      type: object
-      properties:
-        transactionId:
-          type: string
-        transactionHash:
-          type: string
-        chainId:
-          type: integer
-        status:
-          type: string
-          description: Queued, submitted, mined, or errored.
     ContractCall:
       type: object
       properties:
@@ -130,18 +142,6 @@ components:
       required:
       - contractAddress
       - method
-    ContractReadRequest:
-      type: object
-      properties:
-        chainId:
-          type: integer
-        calls:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContractCall'
-      required:
-      - chainId
-      - calls
   parameters:
     ChainId:
       name: chainId

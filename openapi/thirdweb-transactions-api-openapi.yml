@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: thirdweb Authentication Transactions API
-  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  title: thirdweb Transactions API
+  description: thirdweb provides a unified interface for Web3 development.
   termsOfService: https://thirdweb.com/tos
   contact:
     name: thirdweb Support
@@ -29,7 +29,7 @@ paths:
       operationId: listTransactions
       tags:
       - Transactions
-      summary: List transactions.
+      summary: List transactions
       responses:
         '200':
           description: A list of transactions.
@@ -37,7 +37,7 @@ paths:
       operationId: sendTransactions
       tags:
       - Transactions
-      summary: Send a batch of transactions.
+      summary: Send a batch of transactions
       requestBody:
         required: true
         content:
@@ -52,7 +52,7 @@ paths:
       operationId: getTransaction
       tags:
       - Transactions
-      summary: Get a transaction by ID.
+      summary: Get a transaction by ID
       parameters:
       - name: transactionId
         in: path

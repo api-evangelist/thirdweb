@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: thirdweb Authentication Nebula API
-  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  title: thirdweb Nebula API
+  description: thirdweb provides a unified interface for Web3 development.
   termsOfService: https://thirdweb.com/tos
   contact:
     name: thirdweb Support
@@ -29,7 +29,7 @@ paths:
       operationId: aiChat
       tags:
       - Nebula
-      summary: Chat with the thirdweb AI to read and write on-chain.
+      summary: Chat with the thirdweb AI to read and write on-chain
       servers:
       - url: https://api.thirdweb.com
       requestBody:
@@ -46,7 +46,7 @@ paths:
       operationId: nebulaChat
       tags:
       - Nebula
-      summary: Send a message to a Nebula AI session.
+      summary: Send a message to a Nebula AI session
       servers:
       - url: https://nebula-api.thirdweb.com
       security:
@@ -65,7 +65,7 @@ paths:
       operationId: nebulaExecute
       tags:
       - Nebula
-      summary: Have Nebula execute an on-chain action.
+      summary: Have Nebula execute an on-chain action
       servers:
       - url: https://nebula-api.thirdweb.com
       security:
@@ -84,7 +84,7 @@ paths:
       operationId: nebulaCreateSession
       tags:
       - Nebula
-      summary: Create a Nebula session.
+      summary: Create a Nebula session
       servers:
       - url: https://nebula-api.thirdweb.com
       security:

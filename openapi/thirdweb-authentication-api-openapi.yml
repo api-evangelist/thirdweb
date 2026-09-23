@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: thirdweb Authentication API
-  description: thirdweb provides a unified interface for Web3 development. This specification documents real, publicly documented HTTP endpoints across the thirdweb unified API (api.thirdweb.com - wallets, transactions, contracts, tokens, payments and bridge), Engine (backend transaction execution), Insight (indexed on-chain data) and Nebula (AI blockchain interface). Authenticate frontend usage with an x-client-id header (plus x-bundle-id for native apps) or a Bearer JWT, and backend usage with an x-secret-key header.
+  description: thirdweb provides a unified interface for Web3 development.
   termsOfService: https://thirdweb.com/tos
   contact:
     name: thirdweb Support
@@ -29,7 +29,7 @@ paths:
       operationId: initiateAuth
       tags:
       - Authentication
-      summary: Initiate a wallet authentication flow.
+      summary: Initiate a wallet authentication flow
       description: Starts an authentication flow (email, phone, OAuth, or SIWE) and triggers any verification step such as an OTP.
       requestBody:
         required: true
@@ -45,7 +45,7 @@ paths:
       operationId: completeAuth
       tags:
       - Authentication
-      summary: Complete a wallet authentication flow.
+      summary: Complete a wallet authentication flow
       description: Completes authentication by verifying the challenge and returns a JWT access token and wallet address.
       requestBody:
         required: true
@@ -62,6 +62,16 @@ paths:
                 $ref: '#/components/schemas/AuthResult'
 components:
   schemas:
+    AuthCompleteRequest:
+      type: object
+      properties:
+        method:
+          type: string
+        code:
+          type: string
+          description: Verification code or signed payload completing the challenge.
+      required:
+      - method
     AuthInitiateRequest:
       type: object
       properties:
@@ -72,16 +82,6 @@ components:
           type: string
         phone:
           type: string
-      required:
-      - method
-    AuthCompleteRequest:
-      type: object
-      properties:
-        method:
-          type: string
-        code:
-          type: string
-          description: Verification code or signed payload completing the challenge.
       required:
       - method
     AuthResult:
