@@ -179,16 +179,6 @@ components:
         status:
           type: string
           description: Queued, submitted, mined, or errored.
-    Wallet:
-      type: object
-      properties:
-        address:
-          type: string
-        smartWalletAddress:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
     SignMessageRequest:
       type: object
       properties:
@@ -201,6 +191,16 @@ components:
           type: integer
       required:
       - message
+    Wallet:
+      type: object
+      properties:
+        address:
+          type: string
+        smartWalletAddress:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
   parameters:
     Address:
       name: address
