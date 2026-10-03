@@ -86,7 +86,34 @@ paths:
         '200':
           description: Contract events.
 components:
+  parameters:
+    ChainId:
+      name: chainId
+      in: path
+      required: true
+      description: The numeric EVM chain ID.
+      schema:
+        type: integer
+    Address:
+      name: address
+      in: path
+      required: true
+      description: An EVM wallet or contract address.
+      schema:
+        type: string
   schemas:
+    ContractReadRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        calls:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractCall'
+      required:
+      - chainId
+      - calls
     TransactionResult:
       type: object
       properties:
@@ -99,20 +126,6 @@ components:
         status:
           type: string
           description: Queued, submitted, mined, or errored.
-    ContractCall:
-      type: object
-      properties:
-        contractAddress:
-          type: string
-        method:
-          type: string
-          description: Function signature or name to call.
-        params:
-          type: array
-          items: {}
-      required:
-      - contractAddress
-      - method
     ContractWriteRequest:
       type: object
       properties:
@@ -130,33 +143,20 @@ components:
       required:
       - chainId
       - calls
-    ContractReadRequest:
+    ContractCall:
       type: object
       properties:
-        chainId:
-          type: integer
-        calls:
+        contractAddress:
+          type: string
+        method:
+          type: string
+          description: Function signature or name to call.
+        params:
           type: array
-          items:
-            $ref: '#/components/schemas/ContractCall'
+          items: {}
       required:
-      - chainId
-      - calls
-  parameters:
-    Address:
-      name: address
-      in: path
-      required: true
-      description: An EVM wallet or contract address.
-      schema:
-        type: string
-    ChainId:
-      name: chainId
-      in: path
-      required: true
-      description: The numeric EVM chain ID.
-      schema:
-        type: integer
+      - contractAddress
+      - method
   securitySchemes:
     ClientAuth:
       type: apiKey

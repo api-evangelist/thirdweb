@@ -144,29 +144,16 @@ paths:
                 $ref: '#/components/schemas/TransactionResult'
 components:
   schemas:
-    SendTokensRequest:
+    Wallet:
       type: object
       properties:
-        from:
+        address:
           type: string
-        chainId:
-          type: integer
-        recipients:
-          type: array
-          items:
-            type: object
-            properties:
-              address:
-                type: string
-              quantity:
-                type: string
-        tokenAddress:
+        smartWalletAddress:
           type: string
-        tokenId:
+        createdAt:
           type: string
-      required:
-      - chainId
-      - recipients
+          format: date-time
     TransactionResult:
       type: object
       properties:
@@ -191,16 +178,29 @@ components:
           type: integer
       required:
       - message
-    Wallet:
+    SendTokensRequest:
       type: object
       properties:
-        address:
+        from:
           type: string
-        smartWalletAddress:
+        chainId:
+          type: integer
+        recipients:
+          type: array
+          items:
+            type: object
+            properties:
+              address:
+                type: string
+              quantity:
+                type: string
+        tokenAddress:
           type: string
-        createdAt:
+        tokenId:
           type: string
-          format: date-time
+      required:
+      - chainId
+      - recipients
   parameters:
     Address:
       name: address

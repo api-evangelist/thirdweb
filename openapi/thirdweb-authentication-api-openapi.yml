@@ -62,6 +62,18 @@ paths:
                 $ref: '#/components/schemas/AuthResult'
 components:
   schemas:
+    AuthInitiateRequest:
+      type: object
+      properties:
+        method:
+          type: string
+          description: Authentication method (e.g. email, phone, siwe, an OAuth provider).
+        email:
+          type: string
+        phone:
+          type: string
+      required:
+      - method
     AuthCompleteRequest:
       type: object
       properties:
@@ -82,18 +94,6 @@ components:
           type: string
         isNewUser:
           type: boolean
-    AuthInitiateRequest:
-      type: object
-      properties:
-        method:
-          type: string
-          description: Authentication method (e.g. email, phone, siwe, an OAuth provider).
-        email:
-          type: string
-        phone:
-          type: string
-      required:
-      - method
   securitySchemes:
     ClientAuth:
       type: apiKey
