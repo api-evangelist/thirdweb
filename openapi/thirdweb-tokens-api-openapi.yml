@@ -61,13 +61,6 @@ paths:
           description: Token owners.
 components:
   parameters:
-    Address:
-      name: address
-      in: path
-      required: true
-      description: An EVM wallet or contract address.
-      schema:
-        type: string
     ChainId:
       name: chainId
       in: path
@@ -75,6 +68,13 @@ components:
       description: The numeric EVM chain ID.
       schema:
         type: integer
+    Address:
+      name: address
+      in: path
+      required: true
+      description: An EVM wallet or contract address.
+      schema:
+        type: string
   schemas:
     CreateTokenRequest:
       type: object

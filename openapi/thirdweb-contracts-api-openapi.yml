@@ -86,22 +86,21 @@ paths:
         '200':
           description: Contract events.
 components:
-  parameters:
-    ChainId:
-      name: chainId
-      in: path
-      required: true
-      description: The numeric EVM chain ID.
-      schema:
-        type: integer
-    Address:
-      name: address
-      in: path
-      required: true
-      description: An EVM wallet or contract address.
-      schema:
-        type: string
   schemas:
+    ContractCall:
+      type: object
+      properties:
+        contractAddress:
+          type: string
+        method:
+          type: string
+          description: Function signature or name to call.
+        params:
+          type: array
+          items: {}
+      required:
+      - contractAddress
+      - method
     ContractReadRequest:
       type: object
       properties:
@@ -143,20 +142,21 @@ components:
       required:
       - chainId
       - calls
-    ContractCall:
-      type: object
-      properties:
-        contractAddress:
-          type: string
-        method:
-          type: string
-          description: Function signature or name to call.
-        params:
-          type: array
-          items: {}
-      required:
-      - contractAddress
-      - method
+  parameters:
+    ChainId:
+      name: chainId
+      in: path
+      required: true
+      description: The numeric EVM chain ID.
+      schema:
+        type: integer
+    Address:
+      name: address
+      in: path
+      required: true
+      description: An EVM wallet or contract address.
+      schema:
+        type: string
   securitySchemes:
     ClientAuth:
       type: apiKey

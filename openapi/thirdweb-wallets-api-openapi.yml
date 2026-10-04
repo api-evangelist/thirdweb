@@ -144,28 +144,6 @@ paths:
                 $ref: '#/components/schemas/TransactionResult'
 components:
   schemas:
-    Wallet:
-      type: object
-      properties:
-        address:
-          type: string
-        smartWalletAddress:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-    TransactionResult:
-      type: object
-      properties:
-        transactionId:
-          type: string
-        transactionHash:
-          type: string
-        chainId:
-          type: integer
-        status:
-          type: string
-          description: Queued, submitted, mined, or errored.
     SignMessageRequest:
       type: object
       properties:
@@ -178,6 +156,16 @@ components:
           type: integer
       required:
       - message
+    Wallet:
+      type: object
+      properties:
+        address:
+          type: string
+        smartWalletAddress:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
     SendTokensRequest:
       type: object
       properties:
@@ -201,6 +189,18 @@ components:
       required:
       - chainId
       - recipients
+    TransactionResult:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        transactionHash:
+          type: string
+        chainId:
+          type: integer
+        status:
+          type: string
+          description: Queued, submitted, mined, or errored.
   parameters:
     Address:
       name: address

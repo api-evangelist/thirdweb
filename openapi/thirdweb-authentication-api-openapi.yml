@@ -74,16 +74,6 @@ components:
           type: string
       required:
       - method
-    AuthCompleteRequest:
-      type: object
-      properties:
-        method:
-          type: string
-        code:
-          type: string
-          description: Verification code or signed payload completing the challenge.
-      required:
-      - method
     AuthResult:
       type: object
       properties:
@@ -94,6 +84,16 @@ components:
           type: string
         isNewUser:
           type: boolean
+    AuthCompleteRequest:
+      type: object
+      properties:
+        method:
+          type: string
+        code:
+          type: string
+          description: Verification code or signed payload completing the challenge.
+      required:
+      - method
   securitySchemes:
     ClientAuth:
       type: apiKey
