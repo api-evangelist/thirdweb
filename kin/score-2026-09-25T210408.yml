@@ -1,24 +1,22 @@
-# Kin Score artifact — thirdweb — 2026-08-27T094438
+# Kin Score artifact — thirdweb — 2026-09-25T210408
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: thirdweb
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T094438
-  composite: 37.2
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T210408
+  composite: 33.4
   band: thin
   facets:
-    discoverability: 74.1
-    contract_quality: 49.4
-    governance: 0.0
-    operational_transparency: 34.2
-    developer_ergonomics: 35.7
-    commercial_clarity: 39.5
+    discoverability: 66.1
+    contract_quality: 44.5
     contract_governance: 0.0
-    access_clarity: 39.5
+    operational_transparency: 31.1
+    developer_ergonomics: 32.1
+    access_clarity: 36.3
   agent_readiness:
-    score: 19.8
+    score: 26.3
     band: agent-aware
     dimensions:
       spec_presence: true
@@ -26,7 +24,7 @@ kin_score:
       reversibility_documented: false
       mcp_server: false
       auth_clarity: bearer
-      idempotency: false
+      idempotency: verified
       error_semantics: false
       openapi_examples: false
       rate_limit_signal: documented
@@ -44,7 +42,7 @@ kin_score:
     applies: true
     regime: Payments
     regime_id: payments
-    score: 18.8
+    score: 10.7
     matched_via: tags
   provenance:
     agentic_access: derived
