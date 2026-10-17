@@ -143,29 +143,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/TransactionResult'
 components:
+  parameters:
+    Address:
+      name: address
+      in: path
+      required: true
+      description: An EVM wallet or contract address.
+      schema:
+        type: string
   schemas:
-    SignMessageRequest:
-      type: object
-      properties:
-        from:
-          type: string
-          description: The wallet address signing the message.
-        message:
-          type: string
-        chainId:
-          type: integer
-      required:
-      - message
-    Wallet:
-      type: object
-      properties:
-        address:
-          type: string
-        smartWalletAddress:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
     SendTokensRequest:
       type: object
       properties:
@@ -189,6 +175,28 @@ components:
       required:
       - chainId
       - recipients
+    Wallet:
+      type: object
+      properties:
+        address:
+          type: string
+        smartWalletAddress:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+    SignMessageRequest:
+      type: object
+      properties:
+        from:
+          type: string
+          description: The wallet address signing the message.
+        message:
+          type: string
+        chainId:
+          type: integer
+      required:
+      - message
     TransactionResult:
       type: object
       properties:
@@ -201,14 +209,6 @@ components:
         status:
           type: string
           description: Queued, submitted, mined, or errored.
-  parameters:
-    Address:
-      name: address
-      in: path
-      required: true
-      description: An EVM wallet or contract address.
-      schema:
-        type: string
   securitySchemes:
     ClientAuth:
       type: apiKey

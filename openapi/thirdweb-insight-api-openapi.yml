@@ -137,14 +137,6 @@ paths:
         '201':
           description: Webhook created.
 components:
-  parameters:
-    InsightChainId:
-      name: chain
-      in: query
-      required: false
-      description: One or more chain IDs to scope the query.
-      schema:
-        type: integer
   schemas:
     WebhookCreateRequest:
       type: object
@@ -158,6 +150,14 @@ components:
           description: Event/transaction filters scoping which on-chain activity triggers the webhook.
       required:
       - webhookUrl
+  parameters:
+    InsightChainId:
+      name: chain
+      in: query
+      required: false
+      description: One or more chain IDs to scope the query.
+      schema:
+        type: integer
   securitySchemes:
     ClientAuth:
       type: apiKey

@@ -86,6 +86,21 @@ paths:
         '200':
           description: Contract events.
 components:
+  parameters:
+    ChainId:
+      name: chainId
+      in: path
+      required: true
+      description: The numeric EVM chain ID.
+      schema:
+        type: integer
+    Address:
+      name: address
+      in: path
+      required: true
+      description: An EVM wallet or contract address.
+      schema:
+        type: string
   schemas:
     ContractCall:
       type: object
@@ -101,6 +116,23 @@ components:
       required:
       - contractAddress
       - method
+    ContractWriteRequest:
+      type: object
+      properties:
+        chainId:
+          type: integer
+        from:
+          type: string
+          description: The wallet address sending the transactions.
+        calls:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractCall'
+        idempotencyKey:
+          type: string
+      required:
+      - chainId
+      - calls
     ContractReadRequest:
       type: object
       properties:
@@ -125,38 +157,6 @@ components:
         status:
           type: string
           description: Queued, submitted, mined, or errored.
-    ContractWriteRequest:
-      type: object
-      properties:
-        chainId:
-          type: integer
-        from:
-          type: string
-          description: The wallet address sending the transactions.
-        calls:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContractCall'
-        idempotencyKey:
-          type: string
-      required:
-      - chainId
-      - calls
-  parameters:
-    ChainId:
-      name: chainId
-      in: path
-      required: true
-      description: The numeric EVM chain ID.
-      schema:
-        type: integer
-    Address:
-      name: address
-      in: path
-      required: true
-      description: An EVM wallet or contract address.
-      schema:
-        type: string
   securitySchemes:
     ClientAuth:
       type: apiKey
