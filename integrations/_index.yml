@@ -104,3 +104,16 @@
     detected: '2026-10-18'
   status: not-a-workflow
   arazzo: null
+- slug: thirdweb-bubble-own
+  label: Bubble (own)
+  partner: bubble
+  partner_name: Bubble (own)
+  category: Element
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://bubble.io/plugin/thirdweb-checkout-1766736455080x489636567067394050
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
