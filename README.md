@@ -1,4 +1,4 @@
-# thirdweb (thirdweb)
+# thirdweb
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,162 +66,132 @@
 
 thirdweb is a full-stack web3 development platform. Its HTTP APIs unify wallet management, transaction execution, smart contract read/write, token and NFT operations, fiat-to-crypto payments and bridging, indexed on-chain data, and an AI blockchain interface across thousands of EVM chains and Solana, authenticated with a client ID or secret key.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/thirdweb/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/thirdweb/refs/heads/main/apis.yml)
+**Areas:** Web3 · Blockchain · Wallets · Smart Contracts · Payments · Indexer · Ethereum
 
-## Tags
+## thirdweb on APIs.io
 
-- Web3
-- Blockchain
-- Wallets
-- Smart Contracts
-- Payments
-- Indexer
+Everything profiled for thirdweb is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/thirdweb/](https://apis.io/providers/thirdweb/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (9)
 
-- **Created:** 2026-06-20
-- **Modified:** 2026-06-20
+- [thirdweb Authentication API](https://apis.io/apis/thirdweb/thirdweb-authentication-api/) — Wallet authentication flows.
+- [thirdweb Contracts API](https://apis.io/apis/thirdweb/thirdweb-contracts-api/) — Smart contract read, write, and deployment.
+- [thirdweb Engine API](https://apis.io/apis/thirdweb/thirdweb-engine-api/) — Backend transaction execution with server wallets.
+- [thirdweb Insight API](https://apis.io/apis/thirdweb/thirdweb-insight-api/) — Indexed on-chain events, transactions, tokens, and NFTs.
+- [thirdweb Nebula API](https://apis.io/apis/thirdweb/thirdweb-nebula-api/) — AI blockchain interface.
+- [thirdweb Payments API](https://apis.io/apis/thirdweb/thirdweb-payments-api/) — Bridge, swap, convert, onramp, and x402 payments.
+- [thirdweb Tokens API](https://apis.io/apis/thirdweb/thirdweb-tokens-api/) — Token creation, listing, and ownership.
+- [thirdweb Transactions API](https://apis.io/apis/thirdweb/thirdweb-transactions-api/) — Transaction submission and status.
+- [thirdweb Wallets API](https://apis.io/apis/thirdweb/thirdweb-wallets-api/) — User and server wallet management, signing, and transfers.
 
-## APIs
+### Published properties
 
-### thirdweb API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Unified web3 API for user and server wallets, message and typed-data signing, token transfers, smart contract reads and writes, contract deployment, transaction submission, and authentication across thousands of EVM chains and Solana.
+#### Agentic access (1)
 
-- **Human URL:** [https://portal.thirdweb.com/reference](https://portal.thirdweb.com/reference)
-- **Base URL:** `https://api.thirdweb.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Thirdweb Agentic Access](https://apis.io/agentic-access/thirdweb/thirdweb-agentic-access/)
 
-- Wallets
-- Transactions
-- Tokens
-- Contracts
+#### Collections (10)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://portal.thirdweb.com/reference)
-- [API Reference](https://portal.thirdweb.com/reference)
-- [OpenAPI](openapi/thirdweb-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/thirdweb.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/thirdweb.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [thirdweb API](https://apis.io/collections/thirdweb/open-thirdweb/)
+- [thirdweb Authentication API](https://apis.io/collections/thirdweb/open-thirdweb-authentication-api/)
+- [thirdweb Authentication Contracts API](https://apis.io/collections/thirdweb/open-thirdweb-contracts-api/)
+- [thirdweb Authentication Engine API](https://apis.io/collections/thirdweb/open-thirdweb-engine-api/)
+- [thirdweb Authentication Insight API](https://apis.io/collections/thirdweb/open-thirdweb-insight-api/)
+- [thirdweb Authentication Nebula API](https://apis.io/collections/thirdweb/open-thirdweb-nebula-api/)
+- [thirdweb Authentication Payments API](https://apis.io/collections/thirdweb/open-thirdweb-payments-api/)
+- [thirdweb Authentication Tokens API](https://apis.io/collections/thirdweb/open-thirdweb-tokens-api/)
+- [thirdweb Authentication Transactions API](https://apis.io/collections/thirdweb/open-thirdweb-transactions-api/)
+- [thirdweb Authentication Wallets API](https://apis.io/collections/thirdweb/open-thirdweb-wallets-api/)
 
-### thirdweb Engine
+#### Security (2)
 
-Backend transaction execution engine providing server wallets with automated nonce management, gas handling, transaction queueing and retries, plus contract write/read, encoding, signing, and transaction analytics endpoints.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://portal.thirdweb.com/engine](https://portal.thirdweb.com/engine)
-- **Base URL:** `https://engine.thirdweb.com`
+- [Thirdweb Authentication](https://apis.io/security/thirdweb/thirdweb-authentication/)
+- [Thirdweb Domain Security](https://apis.io/security/thirdweb/thirdweb-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Engine
-- Backend
-- Transactions
-- Server Wallets
+Published plans, tiers and prices.
 
-#### Properties
+- [Thirdweb Plans Pricing](https://apis.io/plans/thirdweb/thirdweb-plans-pricing/)
 
-- [Documentation](https://portal.thirdweb.com/engine)
-- [API Reference](https://engine.thirdweb.com/reference)
-- [OpenAPI](openapi/thirdweb-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/thirdweb.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/thirdweb.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### thirdweb Insight
+Published request limits.
 
-Indexed on-chain data API for querying events, transactions, blocks, ERC-20/721/1155 tokens and balances, NFT metadata and transfers, contract ABIs, log decoding, and configurable on-chain webhooks across supported chains.
+- [Thirdweb Rate Limits](https://apis.io/rate-limits/thirdweb/thirdweb-rate-limits/)
 
-- **Human URL:** [https://portal.thirdweb.com/insight](https://portal.thirdweb.com/insight)
-- **Base URL:** `https://insight.thirdweb.com`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Insight
-- Indexer
-- Events
-- On-Chain Data
+- [Thirdweb Finops](https://apis.io/finops/thirdweb/thirdweb-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://portal.thirdweb.com/insight)
-- [API Reference](https://insight.thirdweb.com/reference)
-- [OpenAPI](openapi/thirdweb-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/thirdweb.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/thirdweb.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### thirdweb Nebula
-
-AI blockchain interface with session-based chat, chat completions, and execute endpoints that read and write on-chain on behalf of agents, plus session management, models listing, and delegated authentication.
-
-- **Human URL:** [https://portal.thirdweb.com/nebula](https://portal.thirdweb.com/nebula)
-- **Base URL:** `https://nebula-api.thirdweb.com`
-
-#### Tags
-
-- Nebula
-- AI
-- Agents
-
-#### Properties
-
-- [Documentation](https://portal.thirdweb.com/nebula)
-- [API Reference](https://nebula-api.thirdweb.com/reference)
-- [OpenAPI](openapi/thirdweb-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/thirdweb.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/thirdweb.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### thirdweb Payments and Bridge
-
-Bridge, swap, convert, and onramp any currency across thousands of chains, and accept HTTP and agentic payments with the x402 verify, settle, fetch, and discovery endpoints.
-
-- **Human URL:** [https://portal.thirdweb.com/payments](https://portal.thirdweb.com/payments)
-- **Base URL:** `https://api.thirdweb.com`
-
-#### Tags
-
-- Payments
-- Bridge
-- x402
-- Onramp
-
-#### Properties
-
-- [Documentation](https://portal.thirdweb.com/payments)
-- [API Reference](https://playground.thirdweb.com/payments/backend)
-- [OpenAPI](openapi/thirdweb-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/thirdweb.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/thirdweb.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### thirdweb RPC Edge
-
-Globally distributed JSON-RPC node access over HTTPS at https://{chainId}.rpc.thirdweb.com, authenticated by client ID, providing standard Ethereum JSON-RPC methods across thousands of supported chains.
-
-- **Human URL:** [https://portal.thirdweb.com/infrastructure/rpc-edge/overview](https://portal.thirdweb.com/infrastructure/rpc-edge/overview)
-- **Base URL:** `https://{chainId}.rpc.thirdweb.com`
-
-#### Tags
-
-- RPC
-- JSON-RPC
-- Nodes
-
-#### Properties
-
-- [Documentation](https://portal.thirdweb.com/infrastructure/rpc-edge/overview)
-- [OpenAPI](openapi/thirdweb-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/thirdweb-dev)
-- [LinkedIn](https://www.linkedin.com/company/third-web)
 - [Website](https://thirdweb.com)
 - [Documentation](https://portal.thirdweb.com)
-- [Plans](plans/thirdweb-plans-pricing.yml)
-- [Rate Limits](rate-limits/thirdweb-rate-limits.yml)
-- [Fin Ops](finops/thirdweb-finops.yml)
+- [Blog](https://blog.thirdweb.com/feed)
+- [GitHub](https://github.com/thirdweb-dev)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 25.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 44.5 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 7.9 |
+
+**Agent readiness 24.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | verified |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.7** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/thirdweb/](https://apis.io/providers/thirdweb/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for thirdweb: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/thirdweb/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
